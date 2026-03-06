@@ -1,0 +1,7 @@
+{
+  "key": "homepage",
+  "config": {
+    "component": "Admin/Config/HomepageEditor",
+    "homepage": "/page/1"
+  }
+}

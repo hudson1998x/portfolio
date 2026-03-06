@@ -1,0 +1,6 @@
+import './config/footer'
+import './config/header'
+import './config/homepage'
+import './command-search'
+import './config/themeselector'
+import './updates/update-status'
