@@ -1,0 +1,89 @@
+
+.theme-portfolio {
+  .premium-header-wrapper {
+    // Variables local to this scope
+    $bg-dark: #0a0a0b;
+    $accent-gold: #c5a059;
+    $text-main: #ffffff;
+    $text-dim: rgba(255, 255, 255, 0.6);
+    $border-glass: rgba(255, 255, 255, 0.08);
+
+    background: rgba($bg-dark, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid $border-glass;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s ease;
+
+    .nav-logo {
+      a {
+        color: $text-main;
+        text-decoration: none;
+        letter-spacing: 3px;
+        font-size: 1.25rem;
+        transition: opacity 0.3s ease;
+        
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .premium-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      .nav-item-link {
+        position: relative;
+        color: $text-dim;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: color 0.3s ease;
+
+        i {
+          font-size: 1rem;
+          color: $accent-gold;
+        }
+
+        // The animated underline
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background: $accent-gold;
+          transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 0 8px rgba($accent-gold, 0.4);
+        }
+
+        &:hover, &.active {
+          color: $text-main;
+          
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    // Visual separator for links with both icon and text
+    .iconised-label {
+      span {
+        padding-left: 8px;
+        border-left: 1px solid $border-glass;
+      }
+    }
+  }
+}

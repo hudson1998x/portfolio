@@ -1,0 +1,110 @@
+// --- Theme Variables ---
+$bg-dark: #0a0a0b;
+$bg-surface: #111112; // Slightly lighter for cards/sections
+$accent-gold: #c5a059;
+$text-main: #ffffff;
+$text-dim: rgba(255, 255, 255, 0.6);
+$border-glass: rgba(255, 255, 255, 0.08);
+$font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+.theme-portfolio {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: radial-gradient(circle at 50% -20%, #1a1a1c 0%, $bg-dark 70%);
+
+    .theme-content {
+        flex: 1;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        animation: fadeIn 0.8s ease-out;
+
+        // Elite Tier Typography for the content
+        h1, h2, h3, h4 {
+            color: $text-main;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        p {
+            color: $text-dim;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            max-width: 65ch;
+        }
+    }
+
+    // Gold Button
+    .btn-premium {
+        background: transparent;
+        border: 1px solid $accent-gold;
+        color: $accent-gold;
+        padding: 0.8rem 2rem;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        font-weight: 600;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+
+        &:hover {
+            background: $accent-gold;
+            color: $bg-dark;
+            box-shadow: 0 0 20px rgba($accent-gold, 0.3);
+        }
+    }
+
+    // Glass Card
+    .glass-card {
+        background: $bg-surface;
+        border: 1px solid $border-glass;
+        padding: 2rem;
+        border-radius: 4px; // Sharp corners look more "architectural/elite"
+        transition: transform 0.3s ease, border-color 0.3s ease;
+
+        &:hover {
+            border-color: rgba($accent-gold, 0.3);
+            transform: translateY(-4px);
+        }
+    }
+
+    // --- Keyframe Animations ---
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    // --- Custom Scrollbar for the "Elite" Look ---
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        background: $bg-dark;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: $border-glass;
+        border-radius: 10px;
+        &:hover {
+            background: $accent-gold;
+        }
+    }
+}
+
+// --- Reusable "Elite" UI Components ---
+

@@ -1,0 +1,82 @@
+.premium-footer-wrapper {
+  // Variables consistent with the Header
+  $bg-dark: #0a0a0b;
+  $accent-gold: #c5a059;
+  $text-main: #ffffff;
+  $text-dim: rgba(255, 255, 255, 0.5);
+  $border-glass: rgba(255, 255, 255, 0.08);
+
+  background: $bg-dark;
+  border-top: 1px solid $border-glass;
+  padding: 3rem 0;
+  margin-top: auto;
+
+  .copyright-text {
+    color: $text-dim;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+
+    span {
+      color: $text-main;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+
+  .footer-socials {
+    .social-link {
+      color: $text-dim;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-bottom: 2px;
+
+      // Subtle gold dot before the link
+      &::before {
+        content: '•';
+        color: $accent-gold;
+        margin-right: 8px;
+        opacity: 0.5;
+      }
+
+      &:hover {
+        color: $text-main;
+        transform: translateX(3px); // Slight slide effect
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        width: 0;
+        height: 1px;
+        background: $accent-gold;
+        transition: width 0.3s ease;
+      }
+
+      &:hover::after {
+        width: calc(100% - 20px);
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    text-align: center;
+    
+    .footer-content {
+      gap: 1.5rem;
+    }
+
+    .footer-socials {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "footer": {
+    "component": "Admin/Config/Footer",
+    "copyrightName": "John Hudson",
+    "socials": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/hudson1998x"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/john-hudson-4b85a8381/"
+      }
+    ]
+  },
+  "header": {
+    "component": "Admin/Config/Header",
+    "siteTitle": "John Hudson",
+    "links": [
+      {
+        "to": "/page/2",
+        "label": "About",
+        "icon": ""
+      },
+      {
+        "to": "/page/3",
+        "label": "Contact",
+        "icon": ""
+      },
+      {
+        "to": "https://github.com/hudson1998x",
+        "label": "",
+        "icon": "fab fa-github"
+      },
+      {
+        "to": "https://www.linkedin.com/in/john-hudson-4b85a8381/",
+        "label": "",
+        "icon": "fab fa-linkedin"
+      }
+    ]
+  },
+  "homepage": {
+    "component": "Admin/Config/HomepageEditor",
+    "homepage": "/page/1"
+  },
+  "theme": {
+    "component": "Admin/Config/ThemeSelector",
+    "theme": "Portfolio Theme"
+  },
+  "website": {
+    "title": "Portfolio | John Hudson",
+    "description": "Welcome to my portfolio",
+    "keywords": "John Hudson, Software engineer, for hire, looking for work"
+  }
+}
