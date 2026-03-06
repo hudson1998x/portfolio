@@ -1,82 +1,119 @@
-.premium-footer-wrapper {
-  // Variables consistent with the Header
-  $bg-dark: #0a0a0b;
-  $accent-gold: #c5a059;
-  $text-main: #ffffff;
-  $text-dim: rgba(255, 255, 255, 0.5);
-  $border-glass: rgba(255, 255, 255, 0.08);
+// Variables consistent with the Header
+$footer-bg: #0a0a0b;
+$accent-gold: #c5a059;
+$text-main: #ffffff;
+$text-dim: rgba(255, 255, 255, 0.5);
+$border-color: rgba(255, 255, 255, 0.1);
 
-  background: $bg-dark;
-  border-top: 1px solid $border-glass;
-  padding: 3rem 0;
+.site-footer {
+  background: $footer-bg;
+  border-top: 1px solid $border-color;
+  padding: 4rem 0; // Generous vertical padding for a pro feel
   margin-top: auto;
+  width: 100%;
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem; // Matches the header inward padding
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
 
   .copyright-text {
     color: $text-dim;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 
-    span {
+    .name {
       color: $text-main;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-weight: 700;
+      margin-left: 4px;
     }
   }
 
   .footer-socials {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+
     .social-link {
       color: $text-dim;
-      font-size: 0.8rem;
-      font-weight: 500;
+      font-size: 0.75rem;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       text-decoration: none;
       transition: all 0.3s ease;
       position: relative;
-      padding-bottom: 2px;
+      display: flex;
+      align-items: center;
 
-      // Subtle gold dot before the link
+      // The Carbon "Dot"
       &::before {
-        content: '•';
-        color: $accent-gold;
-        margin-right: 8px;
-        opacity: 0.5;
+        content: '';
+        width: 4px;
+        height: 4px;
+        background: $accent-gold;
+        border-radius: 50%;
+        margin-right: 10px;
+        opacity: 0.4;
+        transition: opacity 0.3s ease;
       }
 
-      &:hover {
-        color: $text-main;
-        transform: translateX(3px); // Slight slide effect
-      }
-      
       &::after {
         content: '';
         position: absolute;
-        bottom: 0;
-        left: 20px;
+        bottom: -4px;
+        left: 14px; // Offset to start after the dot
         width: 0;
         height: 1px;
         background: $accent-gold;
         transition: width 0.3s ease;
       }
 
-      &:hover::after {
-        width: calc(100% - 20px);
+      &:hover {
+        color: $text-main;
+        
+        &::before {
+          opacity: 1;
+          box-shadow: 0 0 8px $accent-gold;
+        }
+
+        &::after {
+          width: calc(100% - 14px);
+        }
       }
     }
   }
 
-  // Responsive adjustments
-  @media (max-width: 768px) {
-    text-align: center;
-    
+  // --- Responsive Logic ---
+  @media (max-width: 850px) {
+    padding: 3rem 0;
+
+    .footer-container {
+      padding: 0 1.5rem; // Slightly tighter on mobile
+    }
+
     .footer-content {
-      gap: 1.5rem;
+      flex-direction: column;
+      text-align: center;
+      gap: 2.5rem;
     }
 
     .footer-socials {
       justify-content: center;
-      flex-wrap: wrap;
+      gap: 1.5rem 2rem;
+      
+      .social-link {
+        font-size: 0.85rem; // Slightly larger touch targets for mobile
+      }
     }
   }
 }

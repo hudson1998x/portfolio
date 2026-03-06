@@ -1328,7 +1328,7 @@ var require_react_dom_development = __commonJS({
         return dispatcher;
       }
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-      var React26 = require_react(), Internals = {
+      var React27 = require_react(), Internals = {
         d: {
           f: noop,
           r: function() {
@@ -1346,7 +1346,7 @@ var require_react_dom_development = __commonJS({
         },
         p: 0,
         findDOMNode: null
-      }, REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), ReactSharedInternals = React26.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+      }, REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), ReactSharedInternals = React27.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
       "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error(
         "React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills"
       );
@@ -2881,7 +2881,7 @@ var require_react_dom_client_development = __commonJS({
         "number" === type && getActiveElement(node.ownerDocument) === node || node.defaultValue === "" + value || (node.defaultValue = "" + value);
       }
       function validateOptionProps(element, props) {
-        null == props.value && ("object" === typeof props.children && null !== props.children ? React26.Children.forEach(props.children, function(child) {
+        null == props.value && ("object" === typeof props.children && null !== props.children ? React27.Children.forEach(props.children, function(child) {
           null == child || "string" === typeof child || "number" === typeof child || "bigint" === typeof child || didWarnInvalidChild || (didWarnInvalidChild = true, console.error(
             "Cannot infer the option value of complex children. Pass a `value` prop or use a plain string as children to <option>."
           ));
@@ -18513,14 +18513,14 @@ var require_react_dom_client_development = __commonJS({
         ));
       }
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-      var Scheduler = require_scheduler(), React26 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.element"), REACT_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = /* @__PURE__ */ Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = /* @__PURE__ */ Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = /* @__PURE__ */ Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = /* @__PURE__ */ Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = /* @__PURE__ */ Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = /* @__PURE__ */ Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = /* @__PURE__ */ Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo"), REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy");
+      var Scheduler = require_scheduler(), React27 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.element"), REACT_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = /* @__PURE__ */ Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = /* @__PURE__ */ Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = /* @__PURE__ */ Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = /* @__PURE__ */ Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = /* @__PURE__ */ Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = /* @__PURE__ */ Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = /* @__PURE__ */ Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo"), REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy");
       /* @__PURE__ */ Symbol.for("react.scope");
       var REACT_ACTIVITY_TYPE = /* @__PURE__ */ Symbol.for("react.activity");
       /* @__PURE__ */ Symbol.for("react.legacy_hidden");
       /* @__PURE__ */ Symbol.for("react.tracing_marker");
       var REACT_MEMO_CACHE_SENTINEL = /* @__PURE__ */ Symbol.for("react.memo_cache_sentinel");
       /* @__PURE__ */ Symbol.for("react.view_transition");
-      var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = /* @__PURE__ */ Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React26.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
+      var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = /* @__PURE__ */ Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React27.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
         pending: false,
         data: null,
         method: null,
@@ -21308,7 +21308,7 @@ var require_react_dom_client_development = __commonJS({
         }
       };
       (function() {
-        var isomorphicReactPackageVersion = React26.version;
+        var isomorphicReactPackageVersion = React27.version;
         if ("19.2.4" !== isomorphicReactPackageVersion)
           throw Error(
             'Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' + (isomorphicReactPackageVersion + "\n  - react-dom:  19.2.4\nLearn more: https://react.dev/warnings/version-mismatch")
@@ -21662,18 +21662,18 @@ var require_react_jsx_runtime_development = __commonJS({
       function isValidElement(object) {
         return "object" === typeof object && null !== object && object.$$typeof === REACT_ELEMENT_TYPE;
       }
-      var React26 = require_react(), REACT_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = /* @__PURE__ */ Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = /* @__PURE__ */ Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = /* @__PURE__ */ Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = /* @__PURE__ */ Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = /* @__PURE__ */ Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = /* @__PURE__ */ Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = /* @__PURE__ */ Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo"), REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = /* @__PURE__ */ Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = /* @__PURE__ */ Symbol.for("react.client.reference"), ReactSharedInternals = React26.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
+      var React27 = require_react(), REACT_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = /* @__PURE__ */ Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = /* @__PURE__ */ Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = /* @__PURE__ */ Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = /* @__PURE__ */ Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = /* @__PURE__ */ Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = /* @__PURE__ */ Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = /* @__PURE__ */ Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo"), REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = /* @__PURE__ */ Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = /* @__PURE__ */ Symbol.for("react.client.reference"), ReactSharedInternals = React27.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
         return null;
       };
-      React26 = {
+      React27 = {
         react_stack_bottom_frame: function(callStackForError) {
           return callStackForError();
         }
       };
       var specialPropKeyWarningShown;
       var didWarnAboutElementRef = {};
-      var unknownOwnerDebugStack = React26.react_stack_bottom_frame.bind(
-        React26,
+      var unknownOwnerDebugStack = React27.react_stack_bottom_frame.bind(
+        React27,
         UnknownOwner
       )();
       var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
@@ -23799,13 +23799,16 @@ registerComponent({
 // app/web/thirdparty/components/card/index.tsx
 var import_jsx_runtime29 = __toESM(require_jsx_runtime());
 var Card = ({
-  title,
-  subtitle,
-  image,
-  showFooter,
-  className,
+  data,
   children
 }) => {
+  const {
+    title,
+    subtitle,
+    image,
+    showFooter,
+    className
+  } = data;
   return /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: `cf-card ${className}`, children: [
     image && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("img", { src: image, className: "cf-card__img", alt: title }),
     /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "cf-card__body", children: [
@@ -26915,6 +26918,9 @@ var AdminThemeWrapper = (props) => {
 };
 registerTheme("@admin", AdminThemeWrapper);
 
+// app/web/themes/portfolio-theme/header/index.tsx
+var import_react46 = __toESM(require_react());
+
 // app/web/themes/portfolio-theme/header/config.json
 var config_default5 = {
   key: "header",
@@ -26936,32 +26942,54 @@ var import_jsx_runtime66 = __toESM(require_jsx_runtime());
 var Header2 = () => {
   const { path } = useRouter();
   const config = useModuleConfig(config_default5.key, config_default5.config);
+  const checkboxRef = (0, import_react46.useRef)(null);
   const isExternal = (to) => to.startsWith("http");
-  return /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("header", { className: "premium-header-wrapper", children: /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "container d-flex justify-content-between align-items-center py-3", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "nav-logo mb-0 fw-bold text-uppercase", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("span", { style: { color: "#c5a059" }, children: "<" }),
-      /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("a", { href: getSafeUrl("/"), children: [
-        " ",
-        config.siteTitle,
-        " "
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("span", { style: { color: "#c5a059" }, children: "/>" })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("nav", { className: "premium-nav", children: config?.links?.map((item) => {
-      const external = isExternal(item.to);
+  (0, import_react46.useEffect)(() => {
+    const handleScrollLock = () => {
+      if (checkboxRef.current?.checked) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "unset";
+      }
+    };
+    const toggle = checkboxRef.current;
+    toggle?.addEventListener("change", handleScrollLock);
+    return () => {
+      toggle?.removeEventListener("change", handleScrollLock);
+      document.body.style.overflow = "unset";
+      if (checkboxRef.current) checkboxRef.current.checked = false;
+    };
+  }, [path]);
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("header", { className: "site-header", children: /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "header-container", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "header-logo", children: /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("a", { href: getSafeUrl("/"), children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("span", { className: "accent", children: "<" }),
+      config.siteTitle,
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("span", { className: "accent", children: "/>" })
+    ] }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
+      "input",
+      {
+        type: "checkbox",
+        id: "menu-toggle",
+        className: "menu-toggle",
+        ref: checkboxRef
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("label", { htmlFor: "menu-toggle", className: "menu-btn", children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("span", {}) }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("nav", { className: "header-nav", children: config?.links?.map((item) => {
       const isActive = path === item.to;
-      const linkClasses = [
-        "nav-item-link",
-        isActive ? "active" : "",
-        item.icon && item.label ? "iconised-label" : ""
-      ].join(" ");
+      const external = isExternal(item.to);
       return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)(
         "a",
         {
           href: external ? item.to : getSafeUrl(item.to),
-          className: linkClasses,
+          className: `nav-link ${isActive ? "active" : ""} ${item.icon && item.label ? "icon-label" : ""}`,
           target: external ? "_blank" : void 0,
           rel: "noopener noreferrer",
+          onClick: () => {
+            if (checkboxRef.current) checkboxRef.current.checked = false;
+            document.body.style.overflow = "unset";
+          },
           children: [
             item.icon && /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("i", { className: item.icon }),
             item.label && /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("span", { children: item.label })
@@ -26994,15 +27022,15 @@ var Footer2 = () => {
   const visibleSocials = config.socials?.filter(
     (s) => s.href && s.href.trim() !== ""
   ) || [];
-  return /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("footer", { className: "premium-footer-wrapper", children: /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("div", { className: "container", children: /* @__PURE__ */ (0, import_jsx_runtime67.jsxs)("div", { className: "footer-content d-flex flex-column flex-md-row justify-content-between align-items-center", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime67.jsxs)("div", { className: "copyright-text mb-0", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("footer", { className: "site-footer", children: /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("div", { className: "footer-container", children: /* @__PURE__ */ (0, import_jsx_runtime67.jsxs)("div", { className: "footer-content", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime67.jsxs)("div", { className: "copyright-text", children: [
       "\xA9 ",
       (/* @__PURE__ */ new Date()).getFullYear(),
       " \u2014",
       " ",
-      /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("span", { children: config.copyrightName })
+      /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("span", { className: "name", children: config.copyrightName })
     ] }),
-    visibleSocials.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("div", { className: "footer-socials d-flex gap-4", children: visibleSocials.map((social) => /* @__PURE__ */ (0, import_jsx_runtime67.jsx)(
+    visibleSocials.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("div", { className: "footer-socials", children: visibleSocials.map((social) => /* @__PURE__ */ (0, import_jsx_runtime67.jsx)(
       "a",
       {
         href: social.href,

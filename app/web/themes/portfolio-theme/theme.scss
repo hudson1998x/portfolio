@@ -104,7 +104,144 @@ $font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: $accent-gold;
         }
     }
+    // Deep Carbon Palette
+    $carbon-void: #0a0a0a;       // The true background
+    $carbon-near-black: #121212; // Card body (almost black)
+    $carbon-border: #222222;     // Subtle structure
+    $carbon-accent: rgb(197, 160, 89); // Gold accent
+    $carbon-text-main: #e0e0e0;  // Clean white
+    $carbon-text-muted: #757575; // Dimmed text
+
+    .cf-card {
+        background-color: $carbon-near-black;
+        border: 1px solid $carbon-border;
+        border-radius: 4px; // Slight rounding for a modern "hardware" feel
+        padding: 2rem;
+        max-width: 480px;
+        position: relative;
+        overflow: hidden;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+        // The "Glow" effect for the gold accent
+        &:hover {
+            border-color: rgba($carbon-accent, 0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 
+                        inset 0 0 10px rgba($carbon-accent, 0.05);
+        }
+
+        &__body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__title {
+            color: $carbon-text-main;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 0 0 0.25rem 0;
+            letter-spacing: -0.02em;
+        }
+
+        &__subtitle {
+            color: $carbon-accent;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace; 
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        &__text {
+            p {
+            color: $carbon-text-muted;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            }
+        }
+
+        .cf-anchor {
+            align-self: flex-start;
+            color: $carbon-text-main;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid $carbon-border;
+            background: transparent;
+            transition: all 0.2s ease;
+
+            &:hover {
+            background: $carbon-accent;
+            color: $carbon-void; // Text turns dark when button turns gold
+            border-color: $carbon-accent;
+            font-weight: 700;
+            }
+        }
+    }
+    // Re-using our Carbon Palette
+    $carbon-void: #0a0a0a;
+    $carbon-near-black: #121212;
+    $carbon-border: #222222;
+    $carbon-accent: rgb(197, 160, 89);
+    $carbon-text-main: #e0e0e0;
+
+    .cf-carousel {
+        &__controls {
+            display: flex;
+            gap: 8px; // Tight spacing for a professional look
+            padding: 1rem 0;
+        }
+
+        &__btn {
+            // Reset defaults
+            cursor: pointer;
+            outline: none;
+            
+            // Carbon styling
+            background-color: $carbon-near-black;
+            border: 1px solid $carbon-border;
+            color: $carbon-text-main;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 1.25rem;
+            padding: 0.6rem 1rem;
+            min-width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+            // Subtle rounding to match the cards
+            border-radius: 4px;
+
+            &:hover {
+            border-color: $carbon-accent;
+            color: $carbon-accent;
+            background-color: rgba($carbon-accent, 0.05);
+            // Tiny lift effect
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            }
+
+            &:active {
+            transform: translateY(0);
+            background-color: $carbon-accent;
+            color: $carbon-void;
+            transition: all 0.05s ease; // Instant feedback
+            }
+
+            // Optional: Style for when a button is at the end of the list
+            &:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            border-color: $carbon-border;
+            color: $carbon-text-main;
+            transform: none;
+            }
+        }
+    }
 }
-
-// --- Reusable "Elite" UI Components ---
-

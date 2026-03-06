@@ -28,6 +28,11 @@
         "icon": ""
       },
       {
+        "to": "/page/4",
+        "label": "Projects",
+        "icon": ""
+      },
+      {
         "to": "https://github.com/hudson1998x",
         "label": "",
         "icon": "fab fa-github"
@@ -44,8 +49,8 @@
     "homepage": "/page/1"
   },
   "theme": {
-    "component": "Admin/Config/ThemeSelector",
-    "theme": "Portfolio Theme"
+    "theme": "Portfolio Theme",
+    "component": "Admin/Config/ThemeSelector"
   },
   "website": {
     "title": "Portfolio | John Hudson",
