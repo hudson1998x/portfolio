@@ -349,5 +349,130 @@ $font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             }
         }
     }
+    
 
+}
+
+// --- Theme Variables ---
+$gold-accent: #c5a059;
+$gold-accent-blur: #c5a05912;
+$glass-border: rgba(255, 255, 255, 0.08);
+$surface-lift: #111112; // The "Not Quite Black" for cards
+$text-bright: #ffffff;
+$text-muted: rgba(255, 255, 255, 0.6);
+
+.doc-container {
+    background: transparent !important; // Force transparency over vendor defaults
+    display: flex;
+    min-height: 100vh;
+    color: $text-bright;
+
+    .doc-body .body-intro h1 {
+        color:$gold-accent !important;
+    }
+
+    .doc-child-directory__link:hover {
+        box-shadow: 0 8px 16px $gold-accent-blur !important;
+    }
+
+    // --- Sidebar & Navigation Tree ---
+    .doc-sidebar {
+        background: transparent;
+        border-right: 1px solid $glass-border;
+        width: 280px;
+
+        .sb-brand {
+            color: $gold-accent;
+        }
+
+        .sb-search input {
+            background: transparent;
+            color:#fff;
+            border:1px solid #cccccc50;
+            text-indent: 15px;
+            &:focus {
+                border-color: $gold-accent !important;
+                background: radial-gradient(transparent, $gold-accent-blur);
+            }
+        }
+
+        .sb-nav {
+            .tree-item-container {
+                // This targets the actual nesting levels in the HTML
+                .nav-row {
+                    display: flex;
+                    align-items: center;
+                    padding: 4px 0;
+                    
+                    // Fix: Ensure child items move RIGHT, not left
+                    &.level-0 { padding-left: 20px; }
+                    &.level-1 { 
+                        padding-left: 44px; // Pushes PHP-IL inward
+                        border-left: 1px solid $glass-border;
+                        margin-left: 28px; 
+                    }
+
+                    .nav-link {
+                        color: $text-muted;
+                        font-size: 0.9rem;
+                        text-decoration: none;
+                        transition: color 0.2s;
+
+                        &:hover { color: $text-bright; }
+                        
+                        &.is-active {
+                            color: $gold-accent;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // --- Main Content ---
+    .doc-main {
+        background: transparent;
+
+        .doc-body {
+            // Kill the White Card permanently
+            .doc-child-directory {
+                border-top: 1px solid $glass-border;
+                margin-top: 4rem;
+
+                &__heading {
+                    color: $gold-accent;
+                    font-size: 0.75rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                }
+
+                &__link {
+                    background: $surface-lift !important; // Override vendor white
+                    border: 1px solid $glass-border !important;
+                    border-radius: 4px;
+                    padding: 24px;
+                    transition: transform 0.3s ease, border-color 0.3s ease;
+
+                    &:hover {
+                        border-color: rgba($gold-accent, 0.5) !important;
+                        transform: translateY(-4px);
+                        background: linear-gradient(135deg, rgba($gold-accent, 0.05), transparent) !important;
+                    }
+                }
+
+                &__title {
+                    color: $text-bright !important;
+                    font-weight: 600;
+                    margin-bottom: 8px;
+                }
+
+                &__desc {
+                    color: $text-muted !important;
+                    font-size: 0.9rem;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
 }
