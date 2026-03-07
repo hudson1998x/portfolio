@@ -48,19 +48,14 @@ export interface CardData {
  * </Card>
  * ```
  */
-export const Card: React.FC<CodefolioProps<CardData> & { children?: React.ReactNode }> = ({
-  data,
+export const Card: React.FC<CardData & { children?: React.ReactNode }> = ({
+  title,
+  subtitle,
+  image,
+  showFooter,
+  className,
   children
 }) => {
-
-  const {
-    title,
-    subtitle,
-    image,
-    showFooter,
-    className,
-  } = data;
-
   return (
     <div className={`cf-card ${className}`}>
       {image && <img src={image} className="cf-card__img" alt={title} />}

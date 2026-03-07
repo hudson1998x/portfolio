@@ -43,8 +43,6 @@ export const HeaderConfigEditor: FC<CodefolioProps<HeaderConfigData>> = ({ data 
         setLinks(prev => [...prev.slice(0, index), ...prev.slice(index + 1)]);
     };
 
-    console.log({ data })
-
     return (
         <div className="cf-header-editor">
             <input type="hidden" name={`${cfgKey}[component]`} value="Admin/Config/Header" />

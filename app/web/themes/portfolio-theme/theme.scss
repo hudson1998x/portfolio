@@ -244,4 +244,110 @@ $font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             }
         }
     }
+
+    .cf-section__content {
+        background: transparent;
+        color:#fff;
+    }
+    
+    // Variables
+    $gold-primary: #c5a059;
+    $gold-glow: rgba(197, 160, 89, 0.2);
+    $dark-surface: #0b0b0b;
+    $border-muted: rgba(255, 255, 255, 0.08);
+
+    .cf-accordion {
+        width: 100%;
+        border-top: 1px solid $border-muted;
+        
+        &-item {
+            position: relative;
+            border-bottom: 1px solid $border-muted;
+            transition: background 0.4s ease;
+
+            // The animated gold "underline"
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, $gold-primary, transparent);
+                transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            &:hover, &.is-open {
+                &::after {
+                    width: 100%;
+                }
+            }
+
+            &__trigger {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 2rem 0; 
+                background: transparent;
+                border: none;
+                color: #e0e0e0;
+                font-family: 'Inter', sans-serif;
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+                text-transform: uppercase; // Adds to the premium feel
+                cursor: pointer;
+                transition: all 0.4s ease;
+
+                &:hover {
+                    color: $gold-primary;
+                    letter-spacing: 2px; // Subtle expansion effect
+                }
+            }
+
+            &__icon {
+                font-size: 0.7rem;
+                color: $border-muted;
+                transition: transform 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6), color 0.4s ease;
+            }
+
+            &__body {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            &__content {
+                padding-bottom: 2rem;
+            
+                p {
+                    color: $gold-primary;
+                    font-size: 1.2rem;
+                    font-weight: 300;
+                    text-shadow: 0 0 10px $gold-glow; // The "Neon Gold" glow
+                    margin: 0;
+                }
+            }
+
+            // Active State
+            &.is-open {
+                background: radial-gradient(circle at left, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
+
+                .cf-accordion-item__trigger {
+                    color: $gold-primary;
+                    padding-bottom: 1rem; // Tighten spacing when open
+                }
+
+                .cf-accordion-item__icon {
+                    transform: rotate(180deg);
+                    color: $gold-primary;
+                }
+
+                .cf-accordion-item__body {
+                    max-height: 120px;
+                }
+            }
+        }
+    }
+
 }

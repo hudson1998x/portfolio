@@ -49,8 +49,8 @@
     "homepage": "/page/1"
   },
   "theme": {
-    "theme": "Portfolio Theme",
-    "component": "Admin/Config/ThemeSelector"
+    "component": "Admin/Config/ThemeSelector",
+    "theme": "Portfolio Theme"
   },
   "website": {
     "title": "Portfolio | John Hudson",

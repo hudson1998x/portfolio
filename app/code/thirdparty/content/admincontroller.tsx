@@ -96,8 +96,8 @@ export abstract class AdminController<T extends Content> extends ContentControll
     ): CanvasNode {
         return canvasAsPage(
             <ui-Section className='autoform'>
-                {title}
-                <ui-Form endpoint={endpoint} method={method}>
+                <div className='form-title'>{title}</div>
+                <ui-Form endpoint={endpoint} method={method} isAutoForm={true}>
                     {fields.map(field => {
                         if (field.module) {
                             field.module.data.name = field.key;
