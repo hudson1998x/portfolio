@@ -1,9 +1,9 @@
 {
-  "pageTitle": "CodeFolio",
+  "pageTitle": "CodeFolio (TypeScript)",
   "pageDescription": "My favourite project so far. An open source CMS designed for static github pages websites.",
   "content": "[]",
   "parentPage": "1",
   "keywords": "CodeFolio, John Hudson",
-  "tags": "CodeFolio, John Hudson",
+  "tags": "Node.JS, C#, TypeScript, React, SASS",
   "id": 3
 }

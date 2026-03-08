@@ -357,18 +357,18 @@ $font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 $gold-accent: #c5a059;
 $gold-accent-blur: #c5a05912;
 $glass-border: rgba(255, 255, 255, 0.08);
-$surface-lift: #111112; // The "Not Quite Black" for cards
+$surface-lift: #111112; 
 $text-bright: #ffffff;
 $text-muted: rgba(255, 255, 255, 0.6);
 
 .doc-container {
-    background: transparent !important; // Force transparency over vendor defaults
+    background: transparent !important; 
     display: flex;
     min-height: 100vh;
     color: $text-bright;
 
     .doc-body .body-intro h1 {
-        color:$gold-accent !important;
+        color: $gold-accent !important;
     }
 
     .doc-child-directory__link:hover {
@@ -387,29 +387,52 @@ $text-muted: rgba(255, 255, 255, 0.6);
 
         .sb-search input {
             background: transparent;
-            color:#fff;
-            border:1px solid #cccccc50;
+            color: #fff;
+            border: 1px solid #cccccc50;
             text-indent: 15px;
             &:focus {
                 border-color: $gold-accent !important;
                 background: radial-gradient(transparent, $gold-accent-blur);
             }
         }
+         .sb-nav {
+            flex: 1;
+            overflow-y: auto;
+            
+            .nav-row {
+                
+                &[class*="level-"] {
+                    margin-left: 4px;
+                    border-left: 1px solid $gold-accent-blur;
+                }
+            }
+        }
 
         .sb-nav {
+            // FIX: Target the tree-group for cumulative indentation
+            .tree-group {
+                // Every time a group is nested, it pushes its children 24px right
+                padding-left: 24px; 
+                
+                // Optional: Adds a very faint vertical line to show hierarchy
+                border-left: 1px solid rgba(255, 255, 255, 0.03); 
+                
+                // Reset the very first group so "My Projects" stays at the margin
+                &:first-child {
+                    padding-left: 0;
+                    border-left: none;
+                }
+            }
+
             .tree-item-container {
-                // This targets the actual nesting levels in the HTML
                 .nav-row {
                     display: flex;
                     align-items: center;
-                    padding: 4px 0;
+                    padding: 6px 0;
                     
-                    // Fix: Ensure child items move RIGHT, not left
-                    &.level-0 { padding-left: 20px; }
-                    &.level-1 { 
-                        padding-left: 44px; // Pushes PHP-IL inward
-                        border-left: 1px solid $glass-border;
-                        margin-left: 28px; 
+                    // Reset vendor level styles so our .tree-group padding takes over
+                    &.level-0, &.level-1, &.level-2, &.level-3 {
+                        padding-left: 12px; 
                     }
 
                     .nav-link {
@@ -425,6 +448,24 @@ $text-muted: rgba(255, 255, 255, 0.6);
                             font-weight: 600;
                         }
                     }
+
+                    .collapse-btn {
+                        color: $text-muted;
+                        background: none;
+                        border: none;
+                        padding: 4px;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        
+                        &:hover { color: $gold-accent; }
+                    }
+
+                    // Spacer for items without a collapse button
+                    .collapse-btn-spacer {
+                        width: 18px; 
+                        display: inline-block;
+                    }
                 }
             }
         }
@@ -435,7 +476,6 @@ $text-muted: rgba(255, 255, 255, 0.6);
         background: transparent;
 
         .doc-body {
-            // Kill the White Card permanently
             .doc-child-directory {
                 border-top: 1px solid $glass-border;
                 margin-top: 4rem;
@@ -448,16 +488,17 @@ $text-muted: rgba(255, 255, 255, 0.6);
                 }
 
                 &__link {
-                    background: $surface-lift !important; // Override vendor white
+                    background: $surface-lift !important; 
                     border: 1px solid $glass-border !important;
                     border-radius: 4px;
                     padding: 24px;
-                    transition: transform 0.3s ease, border-color 0.3s ease;
+                    transition: all 0.3s ease;
 
                     &:hover {
                         border-color: rgba($gold-accent, 0.5) !important;
                         transform: translateY(-4px);
                         background: linear-gradient(135deg, rgba($gold-accent, 0.05), transparent) !important;
+                        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3) !important;
                     }
                 }
 
@@ -469,8 +510,8 @@ $text-muted: rgba(255, 255, 255, 0.6);
 
                 &__desc {
                     color: $text-muted !important;
-                    font-size: 0.9rem;
-                    line-height: 1.5;
+                    font-size: 0.85rem;
+                    line-height: 1.6;
                 }
             }
         }
