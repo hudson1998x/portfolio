@@ -8652,6 +8652,9 @@ body[admin-nav-open=false] aside.user-nav {
   font-size: 0.85rem;
   line-height: 1.6;
 }
+.theme-portfolio .tag-h2 {
+  color: #ccc !important;
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
