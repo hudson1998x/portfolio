@@ -23,20 +23,6 @@
   "footer": {
     "component": "Admin/Config/Footer",
     "copyrightName": "John Hudson",
-    "socials": [
-      {
-        "label": "GitHub",
-        "href": ""
-      },
-      {
-        "label": "LinkedIn",
-        "href": ""
-      },
-      {
-        "label": "Twitter",
-        "href": ""
-      }
-    ],
     "socialOrder": [
       "github",
       "stackoverflow",
@@ -62,7 +48,7 @@
         "icon": ""
       },
       {
-        "to": "/page/4",
+        "to": "/documents/1",
         "label": "Projects",
         "icon": ""
       },
@@ -98,8 +84,8 @@
     "hackernews": ""
   },
   "theme": {
-    "component": "Admin/Config/ThemeSelector",
-    "theme": "Portfolio Theme"
+    "theme": "Portfolio Theme",
+    "component": "Admin/Config/ThemeSelector"
   },
   "website": {
     "title": "Portfolio | John Hudson",

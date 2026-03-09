@@ -1,0 +1,16 @@
+{
+  "projectTitle": "CodeFolio",
+  "projectDescription": "My open source GitHub CMS. ",
+  "repositoryUrl": "https://github.com/hudson1998x/Codefolio/",
+  "publishedUrl": "https://hudson1998x.github.io/codefolio",
+  "tags": "TypeScript, NodeJS, SASS",
+  "category": "Personal projects",
+  "skillIds": [
+    "4",
+    "3",
+    "5",
+    "8"
+  ],
+  "documentationUrl": "/documents/3",
+  "id": 2
+}
