@@ -29076,8 +29076,79 @@ var Footer2 = () => {
   ] }) }) });
 };
 
-// app/web/themes/portfolio-theme/pages/cv-preview/index.tsx
+// app/web/themes/portfolio-theme/pages/homepage/profile-card.tsx
 var import_jsx_runtime82 = __toESM(require_jsx_runtime());
+var DEFAULT_NAV_ITEMS = [
+  { label: "About", href: "/page/2" },
+  { label: "Contact", href: "/page/3" },
+  { label: "Projects", href: "/documents/1" },
+  { label: "My CV", href: "/cv" }
+];
+var DEFAULT_SOCIAL_LINKS = [
+  { icon: "fab fa-linkedin", href: "https://www.linkedin.com/in/john-hudson-4b85a8381/", label: "LinkedIn" },
+  { icon: "fab fa-github", href: "https://github.com/hudson1998x", label: "GitHub" },
+  { icon: "fas fa-rss", href: "/blog", label: "Blog" }
+];
+var ProfileCard = ({
+  name = "John Hudson",
+  title = "Senior Software Engineer",
+  avatarSrc = null,
+  navItems = DEFAULT_NAV_ITEMS,
+  socialLinks = DEFAULT_SOCIAL_LINKS
+}) => {
+  const social = useModuleConfig("social-links", {});
+  const initials = name.split(" ").map((word) => word[0]).join("");
+  return /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "profile-card", children: [
+    avatarSrc ? /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+      "img",
+      {
+        className: "profile-card__avatar",
+        src: avatarSrc,
+        alt: name
+      }
+    ) : /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "profile-card__avatar-placeholder", children: initials }),
+    /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "profile-card__connector profile-card__connector--sm" }),
+    /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "profile-card__h-line" }),
+    /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "profile-card__identity", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("h1", { className: "profile-card__name", children: name }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("p", { className: "profile-card__title", children: title })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "profile-card__h-line" }),
+    /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "profile-card__connector profile-card__connector--md" }),
+    /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("nav", { className: "profile-card__nav", children: navItems.map(({ label, href }) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+      "a",
+      {
+        className: "profile-card__nav-btn",
+        href: getSafeUrl(href),
+        rel: "noopener noreferrer",
+        children: label
+      },
+      label
+    )) }),
+    /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "profile-card__connector profile-card__connector--md" }),
+    /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "profile-card__socials", children: socialLinks.map(({ icon, href, label }) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+      "a",
+      {
+        className: "profile-card__social-link",
+        href: getSafeUrl(href),
+        "aria-label": label,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("i", { className: icon })
+      },
+      label
+    )) })
+  ] });
+};
+
+// app/web/themes/portfolio-theme/pages/homepage/index.tsx
+var import_jsx_runtime83 = __toESM(require_jsx_runtime());
+var Homepage = () => {
+  return /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("div", { className: "homepage", children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(ProfileCard, {}) });
+};
+
+// app/web/themes/portfolio-theme/pages/cv-preview/index.tsx
+var import_jsx_runtime84 = __toESM(require_jsx_runtime());
 var CvPreviewer2 = () => {
   const personal = useModuleConfig("personalInformation", {
     firstName: "JOHN",
@@ -29122,126 +29193,126 @@ var CvPreviewer2 = () => {
     const catMax = Math.max(...(skillsByCategory[cat] ?? []).map((x) => x.yearsOfExperience ?? 0), 1);
     return `${Math.round((s.yearsOfExperience ?? 0) / catMax * 100)}%`;
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "cv-canvas", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "toolbar no-print", children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("button", { className: "download-btn", onClick: () => window.print(), children: "Download CV as PDF" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "cv-sheet", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("header", { className: "cv-header", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "brand", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("h1", { children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "cv-canvas", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("div", { className: "toolbar no-print", children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("button", { className: "download-btn", onClick: () => window.print(), children: "Download CV as PDF" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "cv-sheet", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("header", { className: "cv-header", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "brand", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("h1", { children: [
             personal.firstName,
             " ",
-            /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { children: personal.lastName })
+            /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { children: personal.lastName })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("p", { className: "headline", children: personal.headline })
+          /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("p", { className: "headline", children: personal.headline })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "contacts", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("strong", { children: "DIRECT" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("p", { children: personal.email }),
-          /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("p", { children: personal.phone }),
-          /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("p", { className: "gold-link", children: personal.website })
+        /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "contacts", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("strong", { children: "DIRECT" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("p", { children: personal.email }),
+          /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("p", { children: personal.phone }),
+          /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("p", { className: "gold-link", children: personal.website })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "cv-content-wrap clearfix", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "left-col", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "summary-section", children: personal.summary }),
-          /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("h2", { className: "section-title", children: "Professional Experience" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "cv-content-wrap clearfix", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "left-col", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("div", { className: "summary-section", children: personal.summary }),
+          /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("h2", { className: "section-title", children: "Professional Experience" }),
           sortedEmployment.map((job) => {
             const jobSkills = resolveSkills(job.skillsUsed);
-            return /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "printable-card", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "card-top", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "role", children: job.roleTitle }),
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("span", { className: "dates", children: [
+            return /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "printable-card", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "card-top", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { className: "role", children: job.roleTitle }),
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("span", { className: "dates", children: [
                   formatDate2(job.startDate),
                   " \u2014 ",
                   job.endDate ? formatDate2(job.endDate) : "Present"
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "card-meta", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "card-sub", children: job.company }),
-                job.location && /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("span", { className: "card-location", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "card-meta", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { className: "card-sub", children: job.company }),
+                job.location && /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("span", { className: "card-location", children: [
                   " \xB7 ",
                   job.location
                 ] }),
-                job.roleType && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "card-tag", children: job.roleType }),
-                job.industry && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "card-industry", children: job.industry })
+                job.roleType && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { className: "card-tag", children: job.roleType }),
+                job.industry && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { className: "card-industry", children: job.industry })
               ] }),
-              job.summary && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("p", { className: "card-summary", children: job.summary }),
-              (job.responsibilities ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("ul", { className: "details", children: job.responsibilities.map((res, i) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("li", { children: res }, i)) }),
-              (job.achievements ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "impact-box", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("strong", { children: "Key Impact" }),
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("ul", { children: job.achievements.map((a, i) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("li", { children: a }, i)) })
+              job.summary && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("p", { className: "card-summary", children: job.summary }),
+              (job.responsibilities ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("ul", { className: "details", children: job.responsibilities.map((res, i) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("li", { children: res }, i)) }),
+              (job.achievements ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "impact-box", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("strong", { children: "Key Impact" }),
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("ul", { children: job.achievements.map((a, i) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("li", { children: a }, i)) })
               ] }),
-              jobSkills.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "skill-tags", children: jobSkills.map((s) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "skill-tag", children: s.skillName }, s.id)) })
+              jobSkills.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("div", { className: "skill-tags", children: jobSkills.map((s) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { className: "skill-tag", children: s.skillName }, s.id)) })
             ] }, job.id);
           }),
-          (projects ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)(import_jsx_runtime82.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("h2", { className: "section-title", children: "Selected Projects" }),
+          (projects ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(import_jsx_runtime84.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("h2", { className: "section-title", children: "Selected Projects" }),
             (projects ?? []).map((proj) => {
               const projSkills = resolveSkills(proj.skillIds);
-              return /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "printable-card project", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("h3", { children: [
+              return /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "printable-card project", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("h3", { children: [
                   proj.projectTitle,
-                  proj.category && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "badge", children: proj.category })
+                  proj.category && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { className: "badge", children: proj.category })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("p", { children: proj.projectDescription }),
-                projSkills.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "skill-tags", children: projSkills.map((s) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "skill-tag", children: s.skillName }, s.id)) }),
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "project-links", children: [
-                  proj.repositoryUrl && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("a", { className: "project-link-btn", href: proj.repositoryUrl, target: "_blank", rel: "noreferrer", children: "View repository" }),
-                  proj.publishedUrl && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("a", { className: "project-link-btn", href: proj.publishedUrl, target: "_blank", rel: "noreferrer", children: "Live site" }),
-                  proj.documentationUrl && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("a", { className: "project-link-btn", href: proj.documentationUrl, target: "_blank", rel: "noreferrer", children: "Docs" })
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("p", { children: proj.projectDescription }),
+                projSkills.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("div", { className: "skill-tags", children: projSkills.map((s) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { className: "skill-tag", children: s.skillName }, s.id)) }),
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "project-links", children: [
+                  proj.repositoryUrl && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("a", { className: "project-link-btn", href: proj.repositoryUrl, target: "_blank", rel: "noreferrer", children: "View repository" }),
+                  proj.publishedUrl && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("a", { className: "project-link-btn", href: proj.publishedUrl, target: "_blank", rel: "noreferrer", children: "Live site" }),
+                  proj.documentationUrl && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("a", { className: "project-link-btn", href: proj.documentationUrl, target: "_blank", rel: "noreferrer", children: "Docs" })
                 ] })
               ] }, proj.id);
             })
           ] }),
-          sortedEducation.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)(import_jsx_runtime82.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("h2", { className: "section-title", children: "Education" }),
+          sortedEducation.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(import_jsx_runtime84.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("h2", { className: "section-title", children: "Education" }),
             sortedEducation.map((edu) => {
               const eduSkills = resolveSkills(edu.skillIds);
-              return /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "printable-card", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "card-top", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("span", { className: "role", children: [
+              return /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "printable-card", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "card-top", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("span", { className: "role", children: [
                     edu.qualificationType,
                     edu.fieldOfStudy ? ` \u2014 ${edu.fieldOfStudy}` : ""
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("span", { className: "dates", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("span", { className: "dates", children: [
                     formatDate2(edu.startDate),
                     edu.endDate ? ` \u2014 ${formatDate2(edu.endDate)}` : ""
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "card-meta", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "card-sub", children: edu.institutionUrl ? /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("a", { href: edu.institutionUrl, target: "_blank", rel: "noreferrer", children: edu.institution }) : edu.institution }),
-                  edu.grade && /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("span", { className: "card-grade", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "card-meta", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { className: "card-sub", children: edu.institutionUrl ? /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("a", { href: edu.institutionUrl, target: "_blank", rel: "noreferrer", children: edu.institution }) : edu.institution }),
+                  edu.grade && /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("span", { className: "card-grade", children: [
                     " \xB7 Grade: ",
                     edu.grade
                   ] }),
-                  edu.status && edu.status !== "completed" && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "card-tag", children: edu.status })
+                  edu.status && edu.status !== "completed" && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { className: "card-tag", children: edu.status })
                 ] }),
-                edu.description && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("p", { className: "card-summary", children: edu.description }),
-                (edu.achievements ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "impact-box", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("strong", { children: "Achievements" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("ul", { children: edu.achievements.map((a, i) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("li", { children: a }, i)) })
+                edu.description && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("p", { className: "card-summary", children: edu.description }),
+                (edu.achievements ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "impact-box", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("strong", { children: "Achievements" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("ul", { children: edu.achievements.map((a, i) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("li", { children: a }, i)) })
                 ] }),
-                (edu.modules ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "module-list", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "module-label", children: "Modules:" }),
-                  edu.modules.map((m, i) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "skill-tag", children: m }, i))
+                (edu.modules ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "module-list", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { className: "module-label", children: "Modules:" }),
+                  edu.modules.map((m, i) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { className: "skill-tag", children: m }, i))
                 ] }),
-                eduSkills.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "skill-tags", children: eduSkills.map((s) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "skill-tag", children: s.skillName }, s.id)) })
+                eduSkills.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("div", { className: "skill-tags", children: eduSkills.map((s) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { className: "skill-tag", children: s.skillName }, s.id)) })
               ] }, edu.id);
             })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("aside", { className: "right-col", children: [
-          Object.entries(skillsByCategory).map(([category, catSkills]) => /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("h2", { className: "section-title", children: category }),
-            catSkills.map((s) => /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "skill-row", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "skill-label", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { children: s.skillName }),
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("span", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("aside", { className: "right-col", children: [
+          Object.entries(skillsByCategory).map(([category, catSkills]) => /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("h2", { className: "section-title", children: category }),
+            catSkills.map((s) => /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "skill-row", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "skill-label", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { children: s.skillName }),
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("span", { children: [
                   s.yearsOfExperience,
                   "Y"
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "progress-bg", children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("div", { className: "progress-bg", children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
                 "div",
                 {
                   className: "progress-fill",
@@ -29250,23 +29321,23 @@ var CvPreviewer2 = () => {
               ) })
             ] }, s.id))
           ] }, category)),
-          (certifications ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)(import_jsx_runtime82.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("h2", { className: "section-title", children: "Certifications" }),
+          (certifications ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(import_jsx_runtime84.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("h2", { className: "section-title", children: "Certifications" }),
             (certifications ?? []).map((cert) => {
               const certSkills = resolveSkills(cert.skillIds);
-              return /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "sidebar-card", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "sidebar-card-title", children: cert.certificationName }),
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "sidebar-card-sub", children: cert.issuer }),
-                /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "sidebar-card-meta", children: [
+              return /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "sidebar-card", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("div", { className: "sidebar-card-title", children: cert.certificationName }),
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("div", { className: "sidebar-card-sub", children: cert.issuer }),
+                /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "sidebar-card-meta", children: [
                   formatDate2(cert.issueDate),
                   cert.expiryDate ? ` \u2014 ${formatDate2(cert.expiryDate)}` : " \xB7 No expiry"
                 ] }),
-                cert.credentialId && /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "sidebar-card-meta", children: [
+                cert.credentialId && /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)("div", { className: "sidebar-card-meta", children: [
                   "ID: ",
                   cert.credentialId
                 ] }),
-                cert.credentialUrl && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("a", { className: "sidebar-link", href: cert.credentialUrl, target: "_blank", rel: "noreferrer", children: "Verify credential" }),
-                certSkills.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className: "skill-tags", children: certSkills.map((s) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "skill-tag", children: s.skillName }, s.id)) })
+                cert.credentialUrl && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("a", { className: "sidebar-link", href: cert.credentialUrl, target: "_blank", rel: "noreferrer", children: "Verify credential" }),
+                certSkills.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("div", { className: "skill-tags", children: certSkills.map((s) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("span", { className: "skill-tag", children: s.skillName }, s.id)) })
               ] }, cert.id);
             })
           ] })
@@ -29278,20 +29349,21 @@ var CvPreviewer2 = () => {
 registerComponent({ name: "@pages/cv-preview", component: CvPreviewer2, defaults: {} });
 
 // app/web/themes/portfolio-theme/index.tsx
-var import_jsx_runtime83 = __toESM(require_jsx_runtime());
+var import_jsx_runtime85 = __toESM(require_jsx_runtime());
 var PortfolioTheme = ({ children }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime83.jsxs)("div", { className: "theme-portfolio", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(Header2, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("main", { className: "theme-content", children }),
-    /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(Footer2, {})
+  const isHomepage = getSafeUrl("/") == location.pathname;
+  return /* @__PURE__ */ (0, import_jsx_runtime85.jsxs)("div", { className: "theme-portfolio", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(Header2, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("main", { className: "theme-content", children: isHomepage ? /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(Homepage, {}) : children }),
+    /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(Footer2, {})
   ] });
 };
 registerTheme("Portfolio Theme", PortfolioTheme);
 
 // app/web/index.tsx
-var import_jsx_runtime84 = __toESM(require_jsx_runtime());
+var import_jsx_runtime86 = __toESM(require_jsx_runtime());
 var root = (0, import_client.createRoot)(document.getElementById("root"));
-root.render(/* @__PURE__ */ (0, import_jsx_runtime84.jsx)(Page, {}));
+root.render(/* @__PURE__ */ (0, import_jsx_runtime86.jsx)(Page, {}));
 /*! Bundled license information:
 
 scheduler/cjs/scheduler.development.js:

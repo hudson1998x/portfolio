@@ -4,6 +4,7 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css";
 @import "https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700;900&family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap";
 
 /* app/web/thirdparty/components/alert/style.scss */
 .cf-alert {
@@ -8953,6 +8954,165 @@ body[admin-nav-open=false] aside.user-nav {
   .site-footer .footer-socials .social-link {
     font-size: 0.85rem;
   }
+}
+
+/* app/web/themes/portfolio-theme/pages/homepage/style.scss */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  color: rgba(255, 255, 255, 0.92);
+  padding: 3rem 2rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  user-select: none;
+}
+.profile-card__avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 3px solid #7ecfdc;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(126, 207, 220, 0.3), 0 4px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.profile-card__avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px #7ecfdc, 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+.profile-card__avatar-placeholder {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 3px solid #7ecfdc;
+  background:
+    linear-gradient(
+      135deg,
+      #3a7d8c 0%,
+      #5ba3b0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 0 0 1px rgba(126, 207, 220, 0.3), 0 4px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease;
+}
+.profile-card__avatar-placeholder:hover {
+  transform: scale(1.05);
+}
+.profile-card__connector {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.22);
+}
+.profile-card__connector--sm {
+  height: 24px;
+}
+.profile-card__connector--md {
+  height: 32px;
+}
+.profile-card__h-line {
+  width: 380px;
+  max-width: 85vw;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.22);
+}
+.profile-card__identity {
+  text-align: center;
+  padding: 1rem 0;
+}
+.profile-card__name {
+  font-size: clamp(1.5rem, 5vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+.profile-card__title {
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+}
+.profile-card__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  left: 1px;
+}
+.profile-card__nav-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "Raleway", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  outline: none;
+  margin: -0.5px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.profile-card__nav-btn:hover,
+.profile-card__nav-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+.profile-card__nav-btn:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+.profile-card__socials {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+.profile-card__social-link {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+.profile-card__social-link:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
+}
+.profile-card__footer {
+  margin-top: 2.5rem;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.22);
+}
+.profile-card__footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.profile-card__footer a:hover {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* app/web/themes/portfolio-theme/cv.scss */

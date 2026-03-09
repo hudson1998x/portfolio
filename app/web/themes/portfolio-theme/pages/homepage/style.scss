@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
+
+$text-primary: rgba(255, 255, 255, 0.92);
+$text-secondary: rgba(255, 255, 255, 0.45);
+$border-color: rgba(255, 255, 255, 0.18);
+$btn-bg: rgba(255, 255, 255, 0.06);
+$btn-hover-bg: rgba(255, 255, 255, 0.14);
+$connector-color: rgba(255, 255, 255, 0.22);
+$avatar-ring: #7ecfdc;
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Raleway', sans-serif;
+  color: $text-primary;
+  padding: 3rem 2rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  user-select: none;
+
+  &__avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 3px solid $avatar-ring;
+    object-fit: cover;
+    box-shadow: 0 0 0 1px rgba($avatar-ring, 0.3), 0 4px 24px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 2px $avatar-ring, 0 8px 32px rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  &__avatar-placeholder {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 3px solid $avatar-ring;
+    background: linear-gradient(135deg, #3a7d8c 0%, #5ba3b0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 0 0 0 1px rgba($avatar-ring, 0.3), 0 4px 24px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__connector {
+    width: 1px;
+    background: $connector-color;
+
+    &--sm { height: 24px; }
+    &--md { height: 32px; }
+  }
+
+  &__h-line {
+    width: 380px;
+    max-width: 85vw;
+    height: 1px;
+    background: $connector-color;
+  }
+
+  &__identity {
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  &__name {
+    font-size: clamp(1.5rem, 5vw, 2.1rem);
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    margin: 0 0 0.6rem;
+    color: $text-primary;
+  }
+
+  &__title {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: $text-secondary;
+    margin: 0;
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    left: 1px;
+  }
+
+  &__nav-btn {
+    background: $btn-bg;
+    border: 1px solid $border-color;
+    color: $text-primary;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    outline: none;
+    margin: -0.5px;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background: $btn-hover-bg;
+      color: #fff;
+    }
+
+    &:active {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  &__social-link {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid $border-color;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text-secondary;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.55);
+      color: $text-primary;
+      background: $btn-hover-bg;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__footer {
+    margin-top: 2.5rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.22);
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+}
