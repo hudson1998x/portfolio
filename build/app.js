@@ -23580,7 +23580,6 @@ var Field = (props) => {
       }
     ) });
   }
-  console.log({ props });
   return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(FieldWrapper, { id, label, error: touched ? error : null, children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
     "input",
     {
