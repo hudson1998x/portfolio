@@ -1,0 +1,24 @@
+{"skillName":"C#","skillCategory":"Languages","skillProficiency":"advanced","yearsOfExperience":"3","lastUsed":"4-Roads","id":1}
+{"skillName":"PHP","skillCategory":"Languages","skillProficiency":"","yearsOfExperience":"10","lastUsed":"AIM Smarter","id":2}
+{"skillName":"NodeJS/JavaScript","skillCategory":"Languages","skillProficiency":"advanced","yearsOfExperience":"10","lastUsed":"4-Roads","id":3}
+{"skillName":"NodeJS/TypeScript","skillCategory":"Languages","skillProficiency":"advanced","yearsOfExperience":"6","lastUsed":"4-Roads","id":4}
+{"skillName":"SASS","skillCategory":"Languages","skillProficiency":"intermediate","yearsOfExperience":"2","lastUsed":"4-Roads","id":5}
+{"skillName":"CSS","skillCategory":"Languages","skillProficiency":"","yearsOfExperience":"10","lastUsed":"4-Roads","id":6}
+{"skillName":"Rust","skillCategory":"Languages","skillProficiency":"intermediate","yearsOfExperience":"1","lastUsed":" - ","id":7}
+{"skillName":"React","skillCategory":"Frameworks","skillProficiency":"advanced","yearsOfExperience":"4","lastUsed":"4-Roads","id":8}
+{"skillName":"Laravel","skillCategory":"Frameworks","skillProficiency":"intermediate","yearsOfExperience":"1","lastUsed":"","id":9}
+{"skillName":"Symfony","skillCategory":"Frameworks","skillProficiency":"","yearsOfExperience":"1","lastUsed":"AIM Smarter","id":10}
+{"skillName":"ASP.Net","skillCategory":"Frameworks","skillProficiency":"intermediate","yearsOfExperience":"2","lastUsed":"4-Roads","id":11}
+{"skillName":"Bootstrap","skillCategory":"Frameworks","skillProficiency":"advanced","yearsOfExperience":"8","lastUsed":"AIM Smarter","id":12}
+{"skillName":"Docker","skillCategory":"Tooling","skillProficiency":"intermediate","yearsOfExperience":"2","lastUsed":"SeeQuestor","id":13}
+{"skillName":"Java","skillCategory":"Languages","skillProficiency":"intermediate","yearsOfExperience":"3","lastUsed":"SeeQuestor","id":14}
+{"skillName":"Kubernetes","skillCategory":"Tooling","skillProficiency":"beginner","yearsOfExperience":"1","lastUsed":"SeeQuestor","id":15}
+{"skillName":"Jenkins","skillCategory":"Tooling","skillProficiency":"beginner","yearsOfExperience":"1","lastUsed":"AIM Smarter","id":16}
+{"skillName":"Jira","skillCategory":"Tooling","skillProficiency":"intermediate","yearsOfExperience":"6","lastUsed":"AIM Smarter","id":17}
+{"skillName":"Azure DevOps","skillCategory":"Tooling","skillProficiency":"intermediate","yearsOfExperience":"2","lastUsed":"4-Roads","id":18}
+{"skillName":"Git","skillCategory":"Tooling","skillProficiency":"advanced","yearsOfExperience":"8","lastUsed":"4-Roads","id":19}
+{"skillName":"GitLab","skillCategory":"Tooling","skillProficiency":"intermediate","yearsOfExperience":"4","lastUsed":"SeeQuestor","id":20}
+{"skillName":"JPA","skillCategory":"Frameworks","skillProficiency":"intermediate","yearsOfExperience":"1","lastUsed":"SeeQuestor","id":21}
+{"skillName":"Hibernate","skillCategory":"Frameworks","skillProficiency":"intermediate","yearsOfExperience":"1","lastUsed":"SeeQuestor","id":22}
+{"skillName":"SpringMVC","skillCategory":"Frameworks","skillProficiency":"beginner","yearsOfExperience":"1","lastUsed":"SeeQuestor","id":23}
+{"skillName":"Kafka","skillCategory":"Tooling","skillProficiency":"beginner","yearsOfExperience":"1","lastUsed":"SeeQuestor","id":24}

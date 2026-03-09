@@ -1,0 +1,35 @@
+{
+  "company": "DWP Funded Startup",
+  "companyUrl": ".",
+  "industry": "Food Delivery",
+  "companySize": "",
+  "roleTitle": "Lead developer",
+  "roleType": "",
+  "Department": "Development",
+  "location": "Remote",
+  "startDate": "2021-01-05",
+  "endDate": "2021-09-09",
+  "summary": "This startup was closed due to the owner not complying with the terms of DWP funding. ",
+  "achievements": [
+    "Created a mobile app in flutter where users could place orders, pay and keep track of their delivery",
+    "Used Christofides travelling salesman algorithm to work out an efficient route to optimise delivery times, this also utilised live traffic data, construction information etc...",
+    "Developed an admin panel that powered the mobile app, could view orders, track delivery riders/ drivers. "
+  ],
+  "responsibilities": [
+    "The mobile app",
+    "The API",
+    "The admin portal",
+    "The tracking functionality. "
+  ],
+  "skillsUsed": [
+    "2",
+    "3",
+    "4",
+    "8",
+    "5",
+    "6",
+    "19",
+    "17"
+  ],
+  "id": 3
+}

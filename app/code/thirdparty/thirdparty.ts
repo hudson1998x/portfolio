@@ -7,6 +7,15 @@ import './dev'
 import './Prefab'
 import './Blog'
 import './Documents'
+import './health'
+import './Projects'
+import './Skills'
+import './Employment'
+import './Education'
+import './Certification'
+import './Achievement'
+import './typescript/service'
+import './cv'
 
 // =================
 // Module imports
@@ -43,6 +52,7 @@ import "./esbuild";
 import { getRegisteredServices } from "./decorators/service";
 import { Container } from "./decorators/di-container";
 import { HttpService } from "./http/service";
+import { publish } from "./eventing/events";
 
 /**
  * Bootstraps the Codefolio local development server.
@@ -68,11 +78,20 @@ async function start() {
 
   console.log(`Found ${services.length} services`);
 
-  await Container.initializeServices(services);
+  await Container.initializeServices(services, (service: Function) => {
+    if (service.constructor == HttpService)
+    {
+        if (process.argv.indexOf("--expose-routes") > -1)
+        {
+          console.log('Route expose mode enabled');
+          (service as HttpService).exposeRoutesInConsole();
+        }
+    }
+  });
 
   console.log("✅ All services initialized");
 
-  const httpService: HttpService = Container.resolve<any>(HttpService);
+  await publish('services-loaded', services);
 }
 
 start().catch((err) => {

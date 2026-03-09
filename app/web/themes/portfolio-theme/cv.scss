@@ -1,0 +1,158 @@
+/* --- 1. PRINT ENGINE STABILIZATION --- */
+@media print {
+    @page {
+        size: A4;
+        margin: 0; 
+    }
+
+    html, body {
+        background-color: #0d0d0e !important;
+        -webkit-print-color-adjust: exact !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* FORCED TOP MARGIN FOR PAGE 2+ */
+    .cv-sheet {
+        padding-top: 20mm !important; 
+        &::before {
+            content: "";
+            display: block;
+            height: 10mm; 
+        }
+    }
+
+    /* STABLE FLOAT SYSTEM (Replaces Flex for PDF) */
+    .premium-grid {
+        display: block !important;
+        width: 100%;
+        &::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .main-col {
+            width: 63% !important;
+            float: left;
+            margin-right: 2%;
+        }
+
+        .side-col {
+            width: 35% !important;
+            float: right;
+        }
+    }
+}
+
+/* --- 2. LAYOUT & SHEET --- */
+.cv-sheet {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background-color: #0d0d0e;
+    color: #ffffff;
+    padding: 20mm;
+    box-sizing: border-box;
+
+    .premium-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        padding-bottom: 30px;
+    }
+
+    /* --- 3. EXPERIENCE CARDS --- */
+    .experience-card {
+        margin-bottom: 35px;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            h3 { font-size: 1.2rem; color: #fff; margin: 0; text-transform: uppercase; }
+            .duration { font-size: 0.8rem; color: #c5a059; }
+        }
+
+        .sub-header {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            margin: 5px 0 15px;
+            .company { color: #fff; font-weight: bold; margin-right: 10px; }
+        }
+
+        .inline-achievements {
+            background: rgba(255,255,255,0.03);
+            padding: 15px;
+            border-left: 2px solid #c5a059;
+            ul li { font-size: 0.8rem; line-height: 1.4; margin-bottom: 5px; opacity: 0.8; }
+        }
+    }
+
+    /* --- 4. PROJECTS (FIXED SIZE) --- */
+    .project-card {
+        background: #141415 !important;
+        border: 1px solid rgba(197, 160, 89, 0.1) !important;
+        padding: 20px;
+        margin-bottom: 25px;
+        max-width: 550px; // Fixes the "Too Big" issue
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+
+        h4 { font-size: 1.1rem; margin: 0 0 10px; color: #fff; }
+        p { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 15px; }
+        
+        .project-tags span {
+            font-size: 0.7rem;
+            color: #c5a059;
+            background: rgba(197, 160, 89, 0.05);
+            padding: 2px 6px;
+            margin-right: 5px;
+        }
+    }
+
+    /* --- 5. EXPERTISE & SIDEBAR --- */
+    .side-section {
+        margin-bottom: 40px;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        
+        @media print { padding-top: 15mm; } // Fixes "gluing" to top of Page 2
+    }
+
+    .skill-meter {
+        margin-bottom: 18px;
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            .years { color: #c5a059; }
+        }
+        .meter-bar {
+            height: 2px;
+            background: #222 !important;
+            .fill {
+                background: #c5a059 !important;
+                height: 100%;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    }
+
+    /* SECTION HEADERS WIDOW PROTECTION */
+    .col-title {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #c5a059;
+        margin: 40px 0 20px;
+        border-bottom: 1px solid #222;
+        padding-bottom: 10px;
+        break-after: avoid !important; // Prevents title being left alone at bottom
+    }
+}

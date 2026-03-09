@@ -122,12 +122,18 @@ const runValidation = (
   return null;
 };
 
-const parseOptions = (raw: string[]): InputOption[] =>
-  raw.map(entry => {
+const parseOptions = (raw: string[]): InputOption[] =>{
+  if ((raw[0] as unknown as InputOption)?.label)
+  {
+    return raw as unknown as InputOption[];
+  }
+
+  return raw.map(entry => {
     const idx = entry.indexOf(":");
     if (idx === -1) return { value: entry, label: entry };
     return { value: entry.slice(0, idx), label: entry.slice(idx + 1) };
   });
+}
 
 const fieldDataToProps = (data: FieldData): FieldProps => {
   const base: BaseFieldProps = {
@@ -179,6 +185,7 @@ interface SearchableSelectProps {
   value: string;
   placeholder?: string;
   disabled?: boolean;
+  name?: string;
   onChange: (value: string) => void;
   onBlur: () => void;
 }
@@ -189,6 +196,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
   value,
   placeholder = "Select...",
   disabled,
+  name,
   onChange,
   onBlur,
 }) => {
@@ -250,6 +258,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
       aria-controls={`${id}-listbox`}
       onClick={handleOpen}
     >
+      <input type={'hidden'} name={name} value={value}/>
       <div className="cf-select__trigger">
         <span className={`cf-select__value ${!selected ? "cf-select__value--placeholder" : ""}`}>
           {selected ? selected.label : placeholder}
@@ -333,6 +342,7 @@ export const Field: React.FC<FieldProps> = (props) => {
           disabled={disabled}
           onChange={handleChange}
           onBlur={handleBlur}
+          name={props.name}
         />
       </FieldWrapper>
     );
@@ -355,7 +365,6 @@ export const Field: React.FC<FieldProps> = (props) => {
       </FieldWrapper>
     );
   }
-
   return (
     <FieldWrapper id={id} label={label} error={touched ? error : null}>
       <input

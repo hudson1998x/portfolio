@@ -1,0 +1,44 @@
+{
+  "company": "4-Roads",
+  "companyUrl": "https://4roads.com",
+  "industry": "Digital Agency",
+  "companySize": "small",
+  "roleTitle": "Senior software engineer",
+  "roleType": "full-time",
+  "Department": "Web Development",
+  "location": "Remote, Coventry",
+  "startDate": "2024-04-09",
+  "endDate": "2026-02-27",
+  "summary": "Left due to redundancy.",
+  "achievements": [
+    "Delivered a fully automated TypeScript entity and API generation system, restoring full IntelliSense, static type checking, and autocomplete across a complex React + Node frontend.",
+    "Significantly reduced frontend developer friction: eliminated tedious property lookups and manual endpoint verification, improving productivity and reducing runtime errors.",
+    "Introduced strongly typed include chains for related entities, removing guesswork and improving discoverability when navigating backend relationships.",
+    "Created a scalable system supporting virtual fields, optional properties, and dynamic includes, reducing bugs caused by null/undefined values.",
+    "Enabled safer and faster refactoring by mirroring backend type structures on the frontend, maintaining strong contract integrity between client and server.",
+    "Advocated for and achieved team adoption of TypeScript, transforming the codebase from fragile JavaScript patterns to a maintainable, type-safe architecture.",
+    "Built high-performance IL-based JSON generators using pooled writers and a type dictionary for endpoints, enabling rapid serialization and drastically reducing memory allocations.",
+    "Optimized backend-to-frontend data transfer by automatically generating JSON payloads for API endpoints, improving runtime efficiency and scalability of the TypeScript API system.",
+    "Leveraged advanced runtime code generation to reduce boilerplate and accelerate entity serialization while maintaining strong type safety."
+  ],
+  "responsibilities": [
+    "Led the transition from JavaScript to TypeScript across the frontend codebase, improving type safety, IDE autocomplete, and developer productivity.",
+    "Developed a C# service to generate TypeScript entity classes and API clients, mirroring backend controllers and dependencies.",
+    "Implemented robust type conversion logic for backend primitives, virtual fields, and related entities to ensure accurate type mapping in TypeScript.",
+    "Built strongly typed API classes from backend controllers, including route parameter parsing, HTTP verb detection, and support for includes/relationships.",
+    "Ensured high-performance code generation by using StringBuilder, minimizing allocations, and avoiding LINQ for CPU-efficient loops.",
+    "Collaborated with frontend developers to improve IDE experience, reduce boilerplate, and enforce consistent coding conventions.",
+    "Maintained full end-to-end contract integrity between backend and frontend, enabling safer refactoring and reliable API consumption."
+  ],
+  "skillsUsed": [
+    "1",
+    "8",
+    "4",
+    "3",
+    "18",
+    "19",
+    "5",
+    "6"
+  ],
+  "id": 7
+}

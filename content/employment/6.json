@@ -1,0 +1,36 @@
+{
+  "company": "NDA",
+  "companyUrl": " - ",
+  "industry": "Security",
+  "companySize": "small",
+  "roleTitle": "Senior software engineer",
+  "roleType": "contract",
+  "Department": "Web Development, Infrastructure team.",
+  "location": "Remote",
+  "startDate": "2023-07-09",
+  "endDate": "2024-04-08",
+  "summary": "",
+  "achievements": [
+    "Added a robust event pipeline enabling advanced business logic execution, improving system automation and responsiveness.",
+    "Architected serverless solutions orchestrating multiple AWS Lambda functions and DynamoDB, enhancing scalability and reducing operational overhead.",
+    "Successfully implemented features under strict confidentiality and performance requirements, contributing to a secure and reliable production environment."
+  ],
+  "responsibilities": [
+    "Delivered secure software solutions under NDA, ensuring confidentiality while meeting client requirements.",
+    "Developed full-stack features using PHP, C#, and React, maintaining high-quality code standards.",
+    "Designed and implemented serverless architectures using AWS Lambda, DynamoDB, and event-driven pipelines.",
+    "Built event-driven workflows to orchestrate complex business logic across distributed systems.",
+    "Operated independently in a contract environment, managing development, deployment, and testing.",
+    "Collaborated with stakeholders to translate requirements into scalable, maintainable solutions."
+  ],
+  "skillsUsed": [
+    "8",
+    "1",
+    "2",
+    "9",
+    "5",
+    "6",
+    "17"
+  ],
+  "id": 6
+}

@@ -1,0 +1,13 @@
+{
+  "projectTitle": "PHP IL",
+  "projectDescription": "A PHP runtime built to run PHP code on the CLR",
+  "repositoryUrl": "https://github.com/hudson1998x/PHPIL",
+  "publishedUrl": "https://github.com/hudson1998x/PHPIL",
+  "tags": "C#, PHP, Runtime, CLR",
+  "category": "Runtime",
+  "documentationUrl": "/documents/2",
+  "id": 1,
+  "skillIds": [
+    "1"
+  ]
+}

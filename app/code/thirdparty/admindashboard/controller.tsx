@@ -1,7 +1,6 @@
 import { Controller } from "app/code/thirdparty/decorators/controller";
 import { Get } from "app/code/thirdparty/decorators/routes";
 import { CanvasNode } from "../frontend/types";
-import { AdminNavItem } from "app/code/thirdparty/decorators/admin-nav";
 import { canvasAsPage } from "../utils";
 import { exec } from "child_process";
 import { Container } from "@decorators/di-container";
@@ -13,7 +12,6 @@ class AdminDashboardController
     private vcs:VcsService = Container.resolve(VcsService)
 
     @Get("page.json")
-    @AdminNavItem("Dashboard", undefined, 1)
     public async homepage(): Promise<CanvasNode>
     {
         return canvasAsPage(
@@ -100,9 +98,9 @@ class AdminDashboardController
      * @returns `{ success: true }` on completion, or `{ success: false, message }` on failure.
      */
     @Get("update")
-    public async runUpdate(): Promise<{ success: boolean; message: string }>
+    public async runUpdate(): Promise<void>
     {
-        return new Promise((resolve) => {
+        await new Promise((resolve) => {
             exec("npm run codefolio:update", { cwd: process.cwd() }, (error, stdout, stderr) => {
                 if (error) {
                     resolve({
@@ -117,5 +115,7 @@ class AdminDashboardController
                 }
             });
         });
+        console.log('[UPDATE] - Update completed, please re-run the application');
+        process.exit();
     }
 }

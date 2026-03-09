@@ -1,0 +1,41 @@
+{
+  "company": "SeeQuestor",
+  "companyUrl": "https://www.seequestor.com (N/A)",
+  "industry": "AI, Security",
+  "companySize": "small",
+  "roleTitle": "Senior software engineer, Machine Learning Engineer.",
+  "roleType": "full-time",
+  "Department": "Web Development, Computer Vision Engineer",
+  "location": "Remote, London",
+  "startDate": "2022-07-11",
+  "endDate": "2023-07-09",
+  "summary": "Award-winning AI surveillance platform delivering real-time CCTV analytics and threat detection for counter-terrorism operations in airports and law enforcement environments. Left due to being bought out by an overseas business that made us all redundant. ",
+  "achievements": [
+    "Developed and trained YOLO-based AI models for weapon detection, leveraging Roboflow for large-scale data annotation and GPU acceleration for optimized performance.",
+    "Engineered real-time multi-person tracking across high-footfall environments, including Dubai Airport, capturing detailed attributes such as clothing, gender, and movements to support continuous operational monitoring.",
+    "Built ANPR-based vehicle tracking systems capable of identifying car makes and models, assisting law enforcement operations, including locating a missing person for the UK police.",
+    "Designed and deployed abandoned object detection and threat analysis features, enhancing counter-terrorism capabilities in critical infrastructure environments.",
+    "Contributed to architecture and deployment of an AI-driven CCTV platform using Java, React, Hibernate, JPA, Docker, and Kubernetes, ensuring scalable, high-performance operation in airports and law enforcement settings.",
+    "Recognized as part of an award-winning security initiative delivering cutting-edge AI surveillance solutions that strengthened national security operations."
+  ],
+  "id": 5,
+  "responsibilities": [
+    "Built YOLO models for weapon detection and person tracking",
+    "Managed data annotation pipelines with Roboflow",
+    "Deployed AI platform using Docker & Kubernetes",
+    "Worked on ANPR vehicle tracking",
+    "Collaborated with cross-functional teams",
+    "Maintained frontend micro applications that showed relevant information"
+  ],
+  "skillsUsed": [
+    "8",
+    "14",
+    "3",
+    "4",
+    "17",
+    "21",
+    "22",
+    "23",
+    "24"
+  ]
+}

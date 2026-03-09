@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import './style.scss';
 import { useHotKey } from '@hooks/use-hotkey';
 import { VcsStatusBar } from '../components/vcs-status';
@@ -15,9 +15,127 @@ interface NavConfig {
   children?: NavConfig[];
 }
 
+type OpenItemsMap = Record<string, boolean>;
+
+const getNavKey = (label: string, parentKey = ''): string => `${parentKey}/${label}`;
+
+const readLocalStorage = <T,>(key: string, fallback: T): T => {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw !== null ? JSON.parse(raw) : fallback;
+  } catch {
+    return fallback;
+  }
+};
+
+const writeLocalStorage = (key: string, value: unknown) => {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch { /* ignore */ }
+};
+
+/** Individual Nav Item — open state lives in shared openItems map */
+const NavItem = ({
+  item,
+  noBack,
+  parentKey,
+  openItems,
+  setOpenItems,
+}: {
+  item: NavConfig;
+  noBack?: boolean;
+  parentKey: string;
+  openItems: OpenItemsMap;
+  setOpenItems: React.Dispatch<React.SetStateAction<OpenItemsMap>>;
+}) => {
+  const hasChildren = !!item.children?.length;
+  const navKey = getNavKey(item.label, parentKey);
+  const isOpen = !!openItems[navKey];
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (hasChildren) {
+      e.preventDefault();
+      setOpenItems((prev) => ({ ...prev, [navKey]: !prev[navKey] }));
+    }
+  };
+
+  return (
+    <li className="nav-item-wrapper">
+      <a
+        href={item.href || '#'}
+        className={`nav-link ${isOpen ? 'is-active' : ''}`}
+        onClick={handleClick}
+      >
+        {item.label}
+        {hasChildren && <i className={`fas fa-${isOpen ? 'chevron-up' : 'chevron-down'}`} />}
+      </a>
+      {hasChildren && (
+        <div className={`nav-dropdown ${isOpen ? 'is-open' : ''}`}>
+          <RenderNavItems
+            items={item.children!}
+            noBack={true}
+            parentKey={navKey}
+            openItems={openItems}
+            setOpenItems={setOpenItems}
+          />
+        </div>
+      )}
+    </li>
+  );
+};
+
+const RenderNavItems = ({
+  items,
+  noBack,
+  parentKey = '',
+  openItems,
+  setOpenItems,
+}: {
+  items: NavConfig[];
+  noBack?: boolean;
+  parentKey?: string;
+  openItems: OpenItemsMap;
+  setOpenItems: React.Dispatch<React.SetStateAction<OpenItemsMap>>;
+}) => (
+  <ul className="nav-list">
+    {!noBack && (
+      <li className="nav-item-wrapper">
+        <a href={getSafeUrl('/')} className="nav-link" target="_blank">Visit Website</a>
+      </li>
+    )}
+    {items.map((item, index) => (
+      <NavItem
+        key={index}
+        item={item}
+        noBack={noBack}
+        parentKey={parentKey}
+        openItems={openItems}
+        setOpenItems={setOpenItems}
+      />
+    ))}
+  </ul>
+);
+
 export const AdminHeader = () => {
   const [isSaving, setIsSaving] = useState(false);
   const [navigation, setNavigation] = useState<NavConfig[]>([]);
+
+  const [navOpen, setNavOpen] = useState<boolean>(() =>
+    readLocalStorage('admin-nav-open', false)
+  );
+
+  const [openItems, setOpenItems] = useState<OpenItemsMap>(() =>
+    readLocalStorage('admin-nav-open-items', {})
+  );
+
+  useEffect(() => {
+    document.body.setAttribute('admin-nav-open', String(navOpen));
+    writeLocalStorage('admin-nav-open', navOpen);
+  }, [navOpen]);
+
+  useEffect(() => {
+    writeLocalStorage('admin-nav-open-items', openItems);
+  }, [openItems]);
 
   // Fetch Nav Logic
   useEffect(() => {
@@ -43,54 +161,51 @@ export const AdminHeader = () => {
     return () => ws.close();
   }, []);
 
-  const RenderNavItems = ({ items, noBack }: { items: NavConfig[], noBack?: boolean }) => (
-    <ul className="nav-list">
-      {!noBack ? <li className='nav-item-wrapper'><a href={getSafeUrl('/')} className="nav-link">&larr; Back</a></li> : null}
-      {items.map((item, index) => (
-        <li key={index} className="nav-item-wrapper">
-          <a href={item.href || '#'} className="nav-link">
-            {item.label}
-            {item.children?.length ? <span className="chevron">▾</span> : null}
-          </a>
-          {item.children?.length ? (
-            <div className="nav-dropdown"><RenderNavItems items={item.children} noBack={true}/></div>
-          ) : null}
-        </li>
-      ))}
-    </ul>
-  );
-
   return (
-    <header className="platform-header">
-      <div className="header-left">
-        <div className="workspace-switcher">
-          <div className="logo-box">CF</div>
-          <div className="label-group">
-            <span className="title">CodeFolio</span>
-            <span className="status">Dev Mode</span>
+    <>
+      <header className="platform-header">
+        <div className="header-left">
+          <button className="menu-toggle" onClick={() => setNavOpen((current) => !current)}>
+            <i className="fas fa-bars" />
+          </button>
+          <div className="workspace-switcher">
+            <div className="logo-box">CF</div>
+            <div className="label-group">
+              <span className="title">CodeFolio</span>
+              <span className="status">Dev Mode</span>
+            </div>
           </div>
         </div>
-        <nav className="dynamic-nav">
-          {navigation.length > 0 ? <RenderNavItems items={navigation} /> : <div className="nav-skeleton" />}
-        </nav>
-      </div>
 
-      <div className="header-center">
-        <CommandSearch navigation={navigation} />
-      </div>
+        <div className="header-center">
+          <CommandSearch navigation={navigation} />
+        </div>
 
-      <div className="header-right">
-        <div className="system-indicators">
-          <div className={`save-status ${isSaving ? 'is-saving' : ''}`}>
-            {isSaving ? 'Syncing...' : 'Synced'}
+        <div className="header-right">
+          <div className="system-indicators">
+            <div className={`save-status ${isSaving ? 'is-saving' : ''}`}>
+              {isSaving ? 'Syncing...' : 'Synced'}
+            </div>
+            <VcsStatusBar />
           </div>
-          <VcsStatusBar />
+          <GitCommitAndPush />
+          <div className="profile-pill">
+            <img src="https://api.dicebear.com/7.x/shapes/svg?seed=noir" alt="User" />
+          </div>
         </div>
-        <GitCommitAndPush />
-        <div className="profile-pill">
-          <img src="https://api.dicebear.com/7.x/shapes/svg?seed=noir" alt="User" />
-        </div>
-      </div>
-    </header>
+      </header>
+
+      {navOpen && (
+        <aside className="user-nav">
+          <nav className="dynamic-nav">
+            <RenderNavItems
+              items={navigation}
+              openItems={openItems}
+              setOpenItems={setOpenItems}
+            />
+          </nav>
+        </aside>
+      )}
+    </>
   );
 };

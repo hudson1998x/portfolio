@@ -1,0 +1,32 @@
+{
+  "company": "AIM Smarter",
+  "companyUrl": "https://aimsmarter.co.uk",
+  "industry": "E-Commerce, B2B",
+  "companySize": "",
+  "roleTitle": "Software Engineer",
+  "roleType": "",
+  "Department": "Development",
+  "location": "Sheffield",
+  "startDate": "2021-09-09",
+  "endDate": "2022-07-15",
+  "summary": "Departed following increasing constraints around engineering sustainability and progression",
+  "achievements": [
+    "Recognized architectural issues with three legacy templating systems and initiated the transition toward a component-based frontend system used to standardize UI development.",
+    "Delivered performance improvements and stability enhancements",
+    "Advocated for structured technical debt reduction to prevent long-term system degradation"
+  ],
+  "responsibilities": [
+    "Primary engineer responsible for diagnosing and resolving production issues across the platform.",
+    "Specialized in debugging complex legacy systems and improving reliability.",
+    "Maintained operational stability by rapidly identifying root causes and shipping fixes."
+  ],
+  "skillsUsed": [
+    "2",
+    "3",
+    "10",
+    "6",
+    "17",
+    "19"
+  ],
+  "id": 4
+}

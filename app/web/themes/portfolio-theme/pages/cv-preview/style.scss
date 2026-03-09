@@ -1,0 +1,675 @@
+/* --- PURE CONSTANTS --- */
+$black: #050505;
+$gold: #c5a059;
+$white: #ffffff;
+$muted: #888888;
+
+/* --- WEB VIEW BUTTON --- */
+.download-btn {
+    display: block !important;
+    margin: 20px auto !important;
+    background-color: $gold !important;
+    color: $black !important;
+    border: none !important;
+    padding: 14px 28px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    cursor: pointer !important;
+    border-radius: 4px !important;
+    font-family: 'Inter', sans-serif !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+
+    &:hover {
+        filter: brightness(1.2);
+        transform: translateY(-1px);
+    }
+}
+
+/* --- WEB STYLES --- */
+.clearfix::after { content: ""; clear: both; display: table; }
+
+.cv-canvas {
+    background: #111;
+    min-height: 100vh;
+    padding: 40px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.cv-sheet {
+    width: 210mm;
+    margin: 0 auto;
+    background: $black;
+    color: $white;
+    padding: 20mm;
+    box-shadow: 0 0 60px rgba(0,0,0,0.6);
+
+    .cv-header {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: flex-end;
+        border-bottom: 2px solid $gold;
+        padding-bottom: 30px;
+        margin-bottom: 40px;
+
+        h1 {
+            font-size: 48pt; margin: 0; font-weight: 200; line-height: 1;
+            span { font-weight: 900; color: $gold; }
+        }
+        .headline { letter-spacing: 5px; color: $muted; text-transform: uppercase; margin-top: 10px; font-size: 10pt; }
+
+        .contacts {
+            text-align: right;
+            font-size: 7.5pt;
+            color: #aaa;
+            line-height: 1.5;
+
+            p { margin: 3px 0; }
+
+            strong {
+                font-size: 6.5pt;
+                font-weight: 900;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                color: #555;
+                display: block;
+                margin-bottom: 6px;
+            }
+
+            .gold-link { color: $gold; font-size: 7pt; }
+        }
+    }
+
+    .summary-section {
+        font-size: 11pt;
+        color: #ccc;
+        line-height: 1.8;
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        color: $gold;
+        font-size: 10pt;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        border-left: 4px solid $gold;
+        padding-left: 15px;
+        margin: 50px 0 25px;
+        font-weight: 900;
+    }
+
+    .printable-card {
+        margin-bottom: 40px;
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+
+            .role { font-size: 15pt; font-weight: 800; }
+            .dates { font-size: 9pt; color: $gold; }
+        }
+
+        .card-sub {
+            font-size: 10pt;
+            color: #aaa;
+            margin: 8px 0 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .details {
+            padding-left: 15px;
+            li { font-size: 10pt; color: #ccc; margin-bottom: 10px; line-height: 1.7; }
+        }
+
+        &.project {
+            background: #0d0d0d;
+            border: 1px solid #1a1a1a;
+            border-left: 3px solid $gold;
+            padding: 22px 24px;
+            margin-bottom: 20px;
+
+            h3 {
+                font-size: 13pt;
+                font-weight: 800;
+                color: $white;
+                margin: 0 0 14px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .badge {
+                    font-size: 7pt;
+                    background: $gold;
+                    color: $black;
+                    padding: 2px 8px;
+                    border-radius: 2px;
+                    font-weight: 900;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                }
+            }
+
+            p {
+                font-size: 9.5pt;
+                color: #999;
+                line-height: 1.8;
+                margin: 0 0 18px;
+            }
+
+            .project-link-btn {
+                display: inline-block;
+                border: 1px solid #2e2e2e;
+                color: #bbb;
+                font-size: 8pt;
+                font-weight: 600;
+                padding: 8px 16px;
+                text-decoration: none;
+                letter-spacing: 0.5px;
+                background: transparent;
+                font-family: 'Inter', sans-serif;
+                cursor: pointer;
+                transition: border-color 0.2s, color 0.2s;
+
+                &:hover { border-color: $gold; color: $gold; }
+            }
+        }
+    }
+
+    .impact-box {
+        background: #0d0d0d;
+        padding: 18px 20px;
+        border-left: 3px solid $gold;
+        margin-top: 20px;
+
+        strong { color: $gold; font-size: 8pt; text-transform: uppercase; display: block; margin-bottom: 10px; }
+        p { font-size: 10pt; margin: 0; font-style: italic; color: #eee; line-height: 1.7; }
+        ul {
+            margin: 0;
+            padding-left: 18px;
+            li { font-size: 10pt; color: #eee; margin-bottom: 8px; line-height: 1.65; }
+        }
+    }
+
+    .skill-row {
+        margin-bottom: 22px;
+        .skill-label { display: flex; justify-content: space-between; font-size: 9pt; margin-bottom: 8px; font-weight: 700; }
+        .progress-bg { height: 2px; background: #222;
+            .progress-fill { height: 100%; background: $gold; }
+        }
+    }
+
+    .card-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 6px 0 12px;
+
+        .card-sub      { font-size: 10pt; color: #aaa; font-weight: 600; text-transform: uppercase; }
+        .card-location { font-size: 9pt; color: #666; }
+        .card-industry { font-size: 7.5pt; color: $muted; text-transform: uppercase; letter-spacing: 1px; }
+        .card-grade    { font-size: 9pt; color: #aaa; }
+        .card-tag {
+            font-size: 7pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid #333;
+            color: $muted;
+            padding: 1px 6px;
+        }
+        a { color: #aaa; text-decoration: none; &:hover { color: $gold; } }
+    }
+
+    .card-summary {
+        font-size: 9.5pt;
+        color: #999;
+        line-height: 1.7;
+        margin: 0 0 12px;
+    }
+
+    .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 14px;
+
+        .skill-tag {
+            font-size: 7.5pt;
+            font-family: monospace;
+            color: $gold;
+            background: rgba(197, 160, 89, 0.08);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            padding: 2px 8px;
+        }
+    }
+
+    .module-list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px;
+        margin-top: 12px;
+
+        .module-label {
+            font-size: 7.5pt;
+            font-weight: 700;
+            color: $muted;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    }
+
+    .project-links {
+        display: flex;
+        gap: 10px;
+        margin-top: 14px;
+        flex-wrap: wrap;
+    }
+
+    .sidebar-card {
+        border-left: 2px solid #222;
+        padding: 0 0 16px 14px;
+        margin-bottom: 6px;
+
+        .sidebar-card-title { font-size: 9pt; font-weight: 700; color: $white; margin-bottom: 3px; }
+        .sidebar-card-sub   { font-size: 8pt; color: $gold; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .sidebar-card-meta  { font-size: 7.5pt; color: $muted; margin-bottom: 4px; }
+
+        .sidebar-link {
+            font-size: 7.5pt;
+            color: #aaa;
+            text-decoration: none;
+            border-bottom: 1px solid #333;
+            padding-bottom: 1px;
+            display: inline-block;
+            margin-top: 4px;
+            &:hover { color: $gold; border-color: $gold; }
+        }
+    }
+}
+
+/* --- PRINT STYLES --- */
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 0;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        box-sizing: border-box !important;
+    }
+
+    body {
+        background: $black !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .theme-header, .platform-header, .app-header, .toolbar, .no-print,
+    nav, footer {
+        display: none !important;
+    }
+
+    .cv-canvas {
+        padding: 0 !important;
+        background: $black !important;
+        min-height: unset !important;
+    }
+
+    .cv-sheet {
+        display: block !important;
+        width: 210mm !important;
+        min-height: 297mm !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 12mm 14mm !important;
+        box-shadow: none !important;
+        background: $black !important;
+        color: $white !important;
+        font-family: 'Inter', sans-serif !important;
+
+        /* Override the web flex on cv-header, scoped inside cv-sheet for specificity */
+        .cv-header {
+            display: block !important;
+            width: 100% !important;
+            min-height: 38mm !important;
+            border-bottom: 2pt solid $gold !important;
+            padding-bottom: 5mm !important;
+            margin-bottom: 8mm !important;
+            overflow: visible !important;
+
+            &::after {
+                content: "" !important;
+                display: table !important;
+                clear: both !important;
+            }
+
+            .brand {
+                float: left !important;
+                width: 56% !important;
+                padding-right: 4mm !important;
+
+                h1 {
+                    font-size: 40pt !important;
+                    line-height: 1.05 !important;
+                    margin: 0 0 3pt !important;
+                    color: $white !important;
+                    font-weight: 200 !important;
+
+                    span { color: $gold !important; font-weight: 900 !important; }
+                }
+
+                .headline {
+                    font-size: 8.5pt !important;
+                    color: $muted !important;
+                    text-transform: uppercase !important;
+                    letter-spacing: 4px !important;
+                    margin: 3pt 0 0 !important;
+                }
+            }
+
+            .contacts {
+                float: right !important;
+                width: 40% !important;
+                text-align: right !important;
+                font-size: 8pt !important;
+                color: $white !important;
+                padding-top: 4mm !important;
+                line-height: 1.8 !important;
+                word-break: break-all !important;
+                overflow-wrap: break-word !important;
+
+                p { margin: 0 !important; }
+                strong { font-size: 7pt !important; color: $white !important; letter-spacing: 1px !important; text-transform: uppercase !important; }
+                .gold-link { color: $gold !important; font-size: 7.5pt !important; }
+            }
+        }
+    }
+
+    .cv-content-wrap {
+        display: block !important;
+        width: 100% !important;
+
+        &::after { content: "" !important; display: table !important; clear: both !important; }
+
+        .left-col  { float: left !important;  width: 62% !important; padding-right: 6mm !important; }
+        .right-col { float: right !important; width: 34% !important; }
+    }
+
+    .summary-section {
+        font-size: 9pt !important;
+        color: #cccccc !important;
+        line-height: 1.6 !important;
+        margin-bottom: 6mm !important;
+    }
+
+    .section-title {
+        color: $gold !important;
+        font-size: 8.5pt !important;
+        text-transform: uppercase !important;
+        letter-spacing: 3px !important;
+        border-left: 3pt solid $gold !important;
+        padding-left: 8pt !important;
+        margin: 6mm 0 4mm !important;
+        font-weight: 900 !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+    }
+
+    .printable-card {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 5mm !important;
+
+        .card-top {
+            display: block !important;
+            overflow: hidden !important;
+            margin-bottom: 1mm !important;
+
+            &::after { content: ""; display: table; clear: both; }
+
+            .role  { float: left !important;  font-size: 11pt !important; font-weight: 800 !important; color: $white !important; }
+            .dates { float: right !important; font-size: 8pt !important;  color: $gold !important; }
+        }
+
+        .card-meta {
+            display: block !important;
+            margin: 1mm 0 2mm !important;
+            font-size: 8pt !important;
+            color: #aaaaaa !important;
+
+            .card-sub      { font-size: 8pt !important; color: #aaaaaa !important; font-weight: 600 !important; text-transform: uppercase !important; }
+            .card-location { font-size: 7.5pt !important; color: #666 !important; }
+            .card-tag      { font-size: 7pt !important; color: $muted !important; border: 1px solid #333 !important; padding: 0 4pt !important; margin-left: 4pt !important; }
+            .card-industry { font-size: 7pt !important; color: $muted !important; }
+        }
+
+        .card-summary {
+            font-size: 8pt !important;
+            color: #999 !important;
+            line-height: 1.5 !important;
+            margin: 2mm 0 !important;
+        }
+
+        .details {
+            padding-left: 12pt !important;
+            margin: 0 0 2mm !important;
+            li { font-size: 8.5pt !important; color: #cccccc !important; margin-bottom: 1.5mm !important; line-height: 1.5 !important; }
+        }
+
+        .skill-tags {
+            display: block !important;
+            margin-top: 2mm !important;
+
+            .skill-tag {
+                display: inline-block !important;
+                font-size: 7pt !important;
+                color: $gold !important;
+                border: 1px solid rgba(197, 160, 89, 0.3) !important;
+                padding: 1pt 5pt !important;
+                margin: 1pt 2pt 1pt 0 !important;
+                font-family: monospace !important;
+            }
+        }
+
+        &.project {
+            border-left: 2pt solid $gold !important;
+            padding: 3mm 5mm !important;
+            background: rgba(197, 160, 89, 0.03) !important;
+
+            h3 {
+                font-size: 10pt !important;
+                color: $white !important;
+                margin: 0 0 2mm !important;
+                font-weight: 700 !important;
+
+                .badge {
+                    font-size: 6.5pt !important;
+                    background: $gold !important;
+                    color: $black !important;
+                    padding: 1pt 4pt !important;
+                    margin-left: 4pt !important;
+                    font-weight: 900 !important;
+                }
+            }
+
+            p { font-size: 8.5pt !important; color: #cccccc !important; margin: 0 0 2mm !important; line-height: 1.5 !important; }
+
+            .project-links { display: none !important; } /* URLs aren't clickable in print */
+        }
+    }
+
+    .impact-box {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        border-left: 2pt solid $gold !important;
+        padding: 3pt 8pt !important;
+        margin-top: 3mm !important;
+        background: rgba(197, 160, 89, 0.06) !important;
+
+        strong { font-size: 6.5pt !important; color: $gold !important; text-transform: uppercase !important; display: block !important; margin-bottom: 2pt !important; }
+        p      { font-size: 7.5pt !important; color: #eeeeee !important; margin: 0 !important; font-style: italic !important; line-height: 1.4 !important; }
+        ul {
+            margin: 0 !important;
+            padding-left: 10pt !important;
+            li { font-size: 7.5pt !important; color: #eeeeee !important; margin-bottom: 1mm !important; line-height: 1.4 !important; }
+        }
+    }
+
+    .skill-row {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 4mm !important;
+
+        .skill-label {
+            display: block !important;
+            overflow: hidden !important;
+            font-size: 8pt !important;
+            font-weight: 700 !important;
+            margin-bottom: 2pt !important;
+
+            &::after { content: ""; display: table; clear: both; }
+
+            span:first-child { float: left !important;  color: $white !important; }
+            span:last-child  { float: right !important; color: $muted !important; }
+        }
+
+        .progress-bg {
+            height: 2px !important;
+            background: #222222 !important;
+            display: block !important;
+            width: 100% !important;
+
+            .progress-fill { height: 2px !important; background: $gold !important; display: block !important; }
+        }
+    }
+
+    .sidebar-card {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        border-left: 2pt solid #333 !important;
+        padding: 0 0 4mm 4mm !important;
+        margin-bottom: 4mm !important;
+
+        .sidebar-card-title { font-size: 8.5pt !important; font-weight: 700 !important; color: $white !important; display: block !important; margin-bottom: 1mm !important; }
+        .sidebar-card-sub   { font-size: 7.5pt !important; color: $gold !important; display: block !important; margin-bottom: 1mm !important; }
+        .sidebar-card-meta  { font-size: 7pt !important; color: $muted !important; display: block !important; margin-bottom: 1mm !important; }
+        .sidebar-link       { font-size: 7pt !important; color: #aaa !important; }
+    }
+}
+
+/* --- MOBILE STYLES --- */
+@media screen and (max-width: 768px) {
+
+    .cv-canvas {
+        padding: 0;
+    }
+
+    .cv-sheet {
+        width: 100% !important;
+        padding: 6vw !important;
+        box-shadow: none !important;
+
+        .cv-header {
+            display: block !important;
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+
+            h1 { font-size: 28pt !important; }
+
+            .headline { font-size: 8pt !important; letter-spacing: 3px; }
+
+            .contacts {
+                text-align: left !important;
+                margin-top: 16px;
+                font-size: 8.5pt !important;
+
+                strong { color: $muted !important; }
+            }
+        }
+
+        .summary-section {
+            font-size: 10pt !important;
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            font-size: 8.5pt !important;
+            margin: 32px 0 16px !important;
+            letter-spacing: 3px;
+        }
+
+        .printable-card {
+            margin-bottom: 28px !important;
+
+            .card-top {
+                display: block !important;
+
+                .role  { font-size: 12pt !important; display: block; margin-bottom: 4px; }
+                .dates { font-size: 8pt !important;  display: block; }
+            }
+
+            .card-meta {
+                gap: 4px;
+                margin: 8px 0 10px !important;
+                .card-sub { font-size: 9pt !important; }
+            }
+
+            .card-summary { font-size: 9pt !important; }
+
+            .details li { font-size: 9pt !important; }
+
+            &.project {
+                padding: 16px !important;
+
+                h3 { font-size: 11pt !important; flex-wrap: wrap; }
+                p  { font-size: 9pt !important; }
+            }
+        }
+
+        .impact-box {
+            padding: 12px 14px !important;
+            ul li { font-size: 9pt !important; }
+        }
+
+        .skill-tags .skill-tag { font-size: 7pt !important; }
+    }
+
+    /* Stack the two columns vertically on mobile */
+    .cv-content-wrap {
+        display: block !important;
+
+        .left-col,
+        .right-col {
+            width: 100% !important;
+            float: none !important;
+            padding-right: 0 !important;
+        }
+
+        .right-col { margin-top: 8px; }
+    }
+
+    .skill-row {
+        margin-bottom: 16px !important;
+        .skill-label { font-size: 8.5pt !important; }
+    }
+
+    .sidebar-card {
+        padding: 0 0 14px 12px !important;
+        .sidebar-card-title { font-size: 9pt !important; }
+        .sidebar-card-sub   { font-size: 7.5pt !important; }
+        .sidebar-card-meta  { font-size: 7pt !important; }
+    }
+
+    .download-btn {
+        width: 90% !important;
+        padding: 12px !important;
+    }
+}

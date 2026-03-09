@@ -1,0 +1,18 @@
+{
+  "company": "British Army",
+  "companyUrl": "https://army.mod.uk",
+  "industry": "Military",
+  "companySize": "enterprise",
+  "roleTitle": "Infantry Soldier (Rifleman)",
+  "roleType": "full-time",
+  "Department": "Rifles Div.",
+  "location": "Catterick Garrison",
+  "startDate": "2019-02-19",
+  "endDate": "2020-11-09",
+  "summary": "Left due to medical discharge.",
+  "achievements": [
+    "Passed Infantry Training as an original platoon member, awarded best PT, was also in the running for best shot too. ",
+    "Developed leadership, resilience and high-pressure decision-making capability"
+  ],
+  "id": 2
+}

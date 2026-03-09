@@ -7,6 +7,8 @@ import { Container } from "app/code/thirdparty/decorators/di-container";
 import fs from "fs";
 import path from "path";
 import { ConfigService } from "../configuration/service";
+import { publish } from "@events";
+import { AdminNavService } from "../adminnav";
 
 export type NavConfig = {
   label: string;
@@ -40,6 +42,7 @@ export class HttpService {
   private port = 3000;
   private server!: http.Server;
   private wss!: WebSocketServer;
+  private exposeRoutesToLog: boolean = false;
 
   /**
    * Unique cache-busting token generated at server start. Appended as a query
@@ -60,9 +63,10 @@ export class HttpService {
     this.cacheKey = Date.now().toString(36) + Math.random().toString(36).substring(2, 8);
   }
 
-  addCustomNavEntry(navItem: NavConfig)
+  exposeRoutesInConsole(): HttpService
   {
-    this.adminNav.push(navItem);
+    this.exposeRoutesToLog = true;
+    return this;
   }
 
   /**
@@ -102,7 +106,10 @@ export class HttpService {
 
     // 4. Handle /en-admin/nav.json
     this.app.get(["/en-admin/nav.json", "/en-admin//nav.json"], (req, res) => {
-      res.json(this.adminNav);
+
+      const adminNavService:AdminNavService = Container.resolve(AdminNavService)
+
+      res.json(adminNavService.toTree());
     });
 
     this.app.use(
@@ -181,7 +188,7 @@ export class HttpService {
             return score(a.path) - score(b.path);
           });
 
-      const navMetadata: any[] = Reflect.getMetadata(META.adminNav, ControllerClass) || [];
+      const navMetadata: any[] = Reflect.getOwnMetadata(META.adminNav, ControllerClass) || [];
 
       routes.forEach((route) => {
         const fullPath = this.joinPaths("/" + basePath, route.path);
@@ -230,7 +237,10 @@ export class HttpService {
           });
         }
 
-        console.log(`✔ ${route.method.toUpperCase()} ${fullPath}`);
+        if (this.exposeRoutesToLog)
+        {
+          console.log(`✔ ${route.method.toUpperCase()} ${fullPath}`);
+        }
       });
     });
 
